@@ -76,25 +76,27 @@ Product Backlog :
 ##### [🔝 Voltar ao topo ](#topo)
 
 
-<div>
-<h2>
-Requisitos do Cliente :
-  
-Colocar PDF
+---
 
-</h2>
+## 📌 Requisitos do Cliente <span id="requisitos"></span>  
 
- <h3> Requisitos funcionais :</h3>
-  
--  ...
-  
-<h3>Requisitos não funcionais :</h3>
+### 📌 Requisitos Funcionais  
+- **RF01** – Restringir acesso aos usuários cadastrados  
+- **RF02** – Visualizar histórico de dados por estação em formato tabular  
+- **RF03** – Visualizar gráficos com os parâmetros de uma estação  
+- **RF04** – Comparar gráficos entre diversas estações  
+- **RF05** – Exportação de dados para CSV  
 
-- ...
-</div>
+### 📌 Requisitos Não Funcionais  
+- **RNF01** – Gráficos devem ser interativos  
+- **RNF02** – Interface responsiva  
+- **RNF03** – Página explicativa sobre o projeto  
 
-<br>
+📂 [📜 Documento com Requisitos](./requisitos.pdf)  
 
+🔝 [Voltar ao topo](#topo)  
+
+---
 ##### [🔝 Voltar ao topo ](#topo)
 
 <div>
@@ -109,61 +111,42 @@ Use Stories :
 ##### [🔝 Voltar ao topo ](#topo)
 
 
-<div>
-<h2>
-Tecnologias :
-<span id="tecnologias">
-</h2>
-</div>
+## 📌 Tecnologias <span id="tecnologias"></span>  
 
-
-<div>
-
-<br>
-<a href="https://www.javascript.com/"> <img align="center" alt="Js" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg">
-</a>
-<a href="https://www.typescriptlang.org/"><img align="center" alt="Ts" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-plain.svg">
-</a>
-<a href="https://html.com/"><img align="center" alt="HTML" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg">
-</a>
-<a href="https://css3.com/"><img align="center" alt="CSS" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg">
-</a>    
-<a href=""><img align="center" alt="react" height="30" width="30" src="./icon/282599.webp">
-</a>
-<a href=""><img align="center" alt="postgres" height="30" width="30" 
-src="./icon/postgres.png">
-</a>
-<a href=""><img align="center" alt="figma" height="30" width="30" src="./icon/figma.png">
-</a>
-<a href=""><img align="center" alt="excel" height="30" width="30" src="./icon/excel.png">
-</a>
-<a href=""><img align="center" alt="node.js" height="30" width="30" src="./icon/pngegg.png">
-</a>
-<a href=""><img align="center" alt="trello" height="30" width="30" src="./icon/trello_logo_icon_189227.png">
-</a>
-<a href=""><img align="center" alt="vs-code" height="30" width="30" src="./icon/visual-studio-code.1024x1014.png">
-  
-</div>
-
-<br>
+<p>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg" height="40" alt="JavaScript">
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-plain.svg" height="40" alt="TypeScript">
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" height="40" alt="React">
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" height="40" alt="Node.js">
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg" height="40" alt="MongoDB">
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/figma/figma-original.svg" height="40" alt="Figma">
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" height="40" alt="Git">
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg" height="40" alt="GitHub">
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/trello/trello-plain.svg" height="40" alt="Trello">
+</p>  
 
 ##### [🔝 Voltar ao topo ](#topo)
 
 <div>
-<h2>
-<span id="equipe">  
-Nossa quipe :
-</h2>
 
-<div align="center">
+---
 
-| Função          | Nome                          | Links                                                                                                                         |
-|-----------------|-------------------------------|-------------------------------------------------------------------------------------------------------------------------------|
-| Project Owner   | Tiago Santini Da Silva     | |
-| Scrum Master    | Luana Pinheiro dos Santos Ve | |
-| Dev Team        | Bruno Henrique Menezes Ramos |  |
-| Dev Team        | Vinicius Barbosa Fernandes    | |
-| Dev Team        | Edlaine De Paula Souza | |
-| Dev Team        | Caio Cesar Silva Azevedo dos Reis | |
+## 📌 Nossa Equipe <span id="equipe"></span>  
 
-</div>
+<div>
+<p>
+
+| Função          | Nome                              | GitHub / LinkedIn |
+|----------------|--------------------------------|-----------------|
+| **Product Owner**  | Tiago Santini Da Silva     | [🔗 Perfil](#) |
+| **Scrum Master**   | Luana Pinheiro dos Santos Ve | [🔗 Perfil](#) |
+| **Dev Team**       | Bruno Henrique Menezes Ramos | [🔗 Perfil](#) |
+| **Dev Team**       | Vinicius Barbosa Fernandes   | [🔗 Perfil](#) |
+| **Dev Team**       | Edlaine De Paula Souza       | [🔗 Perfil](#) |
+| **Dev Team**       | Caio Cesar Silva Azevedo dos Reis | [🔗 Perfil](#) |
+</p>
+</div>  
+
+🔝 [Voltar ao topo](#topo)  
+
+---
