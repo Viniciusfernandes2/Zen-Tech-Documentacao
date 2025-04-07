@@ -1,0 +1,85 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Garante que o contêiner tenha pelo menos a altura da tela */
+    width: 100vw; /* Garante que o contêiner tenha a largura total da tela */
+    background-image: url("../assets/img/Lago.jpg"); /* Caminho para a imagem */
+    background-size: cover; /* Faz a imagem cobrir toda a tela */
+  }
+  
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    height:350px;
+    width: 300px;
+    padding: 20px;
+    background-color :  rgba(48, 93, 133, 0.6);
+    border-radius: 30px;
+    border: 1px solid #777777;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .login-error {
+    color: red;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .login-input {
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    background-color: rgba(42, 74, 108, 0.8);
+    border: none; /* Remove a borda padrão */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5), /* Sombra principal */
+                0 1px 3px rgba(0, 0, 0, 0.1); /* Sombra secundária mais sutil */
+    transition: box-shadow 0.3s ease; /* Animação para suavizar a interação */
+  }
+  
+  .login-input:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  .login-button {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #065db9;
+    color: white;
+    border: 1px solid #ffffff;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: auto;
+  }
+  
+  .login-button:hover {
+    background-color: #0056b3;
+  }
+
+  html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  ::placeholder {
+    color: #a3a3a3fd;
+  }
+
+  .login-logo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px; /* Espaço entre a logo e os campos do formulário */
+  }
+  
+  .login-logo {
+    border-radius: 100px;
+    width: 120px; /* Ajuste o tamanho da imagem */
+    height: 120px; /* Mantém a proporção da imagem */
+    box-shadow: 0 4px 6px rgba(0, 4, 0, 0.50);
+  }

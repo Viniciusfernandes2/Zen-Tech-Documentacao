@@ -1,0 +1,80 @@
+.cadastro-container {
+  font-family: Arial, sans-serif;
+  background-image: url("../assets/img/Lago.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgba(255, 255, 255, 0.6); 
+  background-blend-mode: overlay; 
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  width: 350px;
+  padding: 20px;
+  background-color: rgba(48, 93, 133, 0.6);
+  border-radius: 30px;
+  border: 1px solid #777777;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+form div {
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 5px;
+}
+
+input {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 4px;
+  background-color: rgba(42, 74, 108, 0.8);
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.1);
+  color: #ffffff;
+  transition: box-shadow 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.8);
+}
+
+button {
+  padding: 10px;
+  font-size: 16px;
+  background-color: #065db9;
+  color: white;
+  border: 1px solid #ffffff;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: auto;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+h1 {
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+::placeholder {
+  color: #a3a3a3fd;
+}
