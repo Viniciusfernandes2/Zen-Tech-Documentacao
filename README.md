@@ -19,14 +19,21 @@
 
 <div>
 <h2>
-Sobre o Projeto : 
+Sobre o Projeto :📋 
 </h2>
 <p>
-...
-
-Principais Funcionalidades:
-
+ Plataforma para visualização gráfica de dados meteorológicos coletados por três estações no Lago de Furnas, com sistema de alertas para risco aos navegantes nos 30 municípios vizinhos. 
 </p>
+<br/>
+
+**Principais Funcionalidades:**
+- 🛡️ Autenticação de usuários
+- 📊 Visualização de dados em tabelas e gráficos interativos
+- ⚠️ Sistema de alertas para ventos extremos
+- 🔄 Comparação de parâmetros entre estações
+- 📥 Exportação de dados em CSV
+- 📱 Interface responsiva
+
 </div>
 
 <br>
@@ -85,12 +92,32 @@ Colocar PDF
 </h2>
 
  <h3> Requisitos funcionais :</h3>
-  
--  ...
+  <p>
+    RF01 – O sistema deve restringir o acesso a usuários autenticados;
+  </p> 
+  <p>
+    RF02 – O sistema deve permitir a visualização do histórico de dados de cada estação em formato 
+    tabular;
+  </p>
+  <p>
+      RF03 – O sistema deve exibir gráficos com os parâmetros coletados por uma estação 
+    meteorológica;
+  </p>
+  <p>
+    RF04 – O sistema deve permitir a comparação de um mesmo parâmetro entre diferentes estações 
+    por meio de gráficos;
+  </p>
+  <p>
+     RF05 – O sistema deve possibilitar o download de dados em formato CSV. 
+  </p>
+   
   
 <h3>Requisitos não funcionais :</h3>
 
-- ...
+<p>RNF01 – O sistema deve exibir gráficos interativos para melhor análise dos dados;</p>
+<p>RNF02 – A interface deve ser responsiva, garantindo um layout consistente em diferentes 
+dispositivos e tamanhos de tela;</p>
+<p>RNF03 – O sistema deve incluir uma página explicativa sobre o projeto.</p>
 </div>
 
 <br>
@@ -120,29 +147,45 @@ Tecnologias :
 <div>
 
 <br>
-<a href="https://www.javascript.com/"> <img align="center" alt="Js" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg">
+<!-- TypeScript -->
+<a href="https://www.typescriptlang.org/" target="_blank">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-plain.svg" alt="TypeScript" width="30" height="30">
 </a>
-<a href="https://www.typescriptlang.org/"><img align="center" alt="Ts" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-plain.svg">
+
+<!-- MongoDB -->
+<a href="https://www.mongodb.com/" target="_blank">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" width="30" height="30">
 </a>
-<a href="https://html.com/"><img align="center" alt="HTML" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg">
+
+<!-- React -->
+<a href="https://react.dev/" target="_blank">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" width="30" height="30">
 </a>
-<a href="https://css3.com/"><img align="center" alt="CSS" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg">
-</a>    
-<a href=""><img align="center" alt="react" height="30" width="30" src="./icon/282599.webp">
+
+<!-- Figma -->
+<a href="https://www.figma.com/" target="_blank">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma" width="30" height="30">
 </a>
-<a href=""><img align="center" alt="postgres" height="30" width="30" 
-src="./icon/postgres.png">
+
+<!-- Excel -->
+<a href="https://www.microsoft.com/en-us/microsoft-365/excel" target="_blank">
+  <img src="https://img.icons8.com/color/48/000000/microsoft-excel-2019--v1.png" alt="Excel" width="30" height="30">
 </a>
-<a href=""><img align="center" alt="figma" height="30" width="30" src="./icon/figma.png">
+
+<!-- Node.js -->
+<a href="https://nodejs.org/" target="_blank">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" width="30" height="30">
 </a>
-<a href=""><img align="center" alt="excel" height="30" width="30" src="./icon/excel.png">
+
+<!-- Trello -->
+<a href="https://trello.com/" target="_blank">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/trello/trello-plain.svg" alt="Trello" width="30" height="30">
 </a>
-<a href=""><img align="center" alt="node.js" height="30" width="30" src="./icon/pngegg.png">
+
+<!-- VS Code -->
+<a href="https://code.visualstudio.com/" target="_blank">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code" width="30" height="30">
 </a>
-<a href=""><img align="center" alt="trello" height="30" width="30" src="./icon/trello_logo_icon_189227.png">
-</a>
-<a href=""><img align="center" alt="vs-code" height="30" width="30" src="./icon/visual-studio-code.1024x1014.png">
-  
 </div>
 
 <br>
