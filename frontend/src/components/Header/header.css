@@ -1,29 +1,65 @@
 .header {
-    background-color: #333;
-    color: white;
-    padding: 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%; 
-  }
-  
-  .navList {
-    list-style: none;
-    display: flex;
-    gap: 1rem;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .navList a {
-    color: white;
-    text-decoration: none;
-  }
-  
-  .navList a:hover {
-    text-decoration: underline;
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px 0;
+  background: rgba(48, 93, 133, 0.4);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.navList {
+  display: flex;
+  justify-content: flex-start; 
+  align-items: center;
+  margin: 0 auto;
+  padding: 0 20px;
+  list-style: none;
+  gap: 15px;
+}
+
+.navList li a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  padding: 8px 20px;
+  border-radius: 20px;
+}
+
+.home-button a,
+.graficos-button a,
+.sobre-button a {
+  background-color: rgba(42, 74, 108, 0.8);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.home-button a:hover,
+.graficos-button a:hover,
+.sobre-button a:hover {
+  background-color: rgba(42, 74, 108, 1);
+  transform: scale(1.05);
+}
+
+.sair-button {
+  margin-left: auto;
+}
+
+.sair-button a {
+  background-color: rgba(180, 180, 180, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.sair-button a:hover {
+  background-color: rgba(255, 0, 0, 0.35);
+  transform: scale(1.05);
+}
