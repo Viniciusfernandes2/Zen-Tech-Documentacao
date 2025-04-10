@@ -9,8 +9,7 @@ const UserSchema = new mongoose.Schema({
         required: true,
         unique: true,
         match: [/^\d{11}$/, "Número de telefone inválido! Deve conter exatamente 11 dígitos."]
-    },
-    role: { type: String, required: true, enum: ["admin", "user"], default: "user" }
+    }
 });
 
 const User = mongoose.model("User", UserSchema, 'users');
