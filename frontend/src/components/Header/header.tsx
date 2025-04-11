@@ -15,7 +15,7 @@ const Header: React.FC = () => {
             </a>
           </li>
           <li className="sobre-button">
-            <a href="/sobre-page" className="nav-link"> Sobre
+            <a href="/Sobre-page" className="nav-link"> Sobre
             </a>
           </li>
           <li className="sair-button">
