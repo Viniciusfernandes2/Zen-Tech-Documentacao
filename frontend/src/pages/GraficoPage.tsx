@@ -2,54 +2,48 @@ import React, { useEffect, useRef, useState } from "react";
 import ApexCharts, { ApexOptions } from "apexcharts";
 import "../styles/GraficoPage.css";
 import Header from "../components/Header/header";
-import { grafico } from "../services/graficoService";
+import { graficoStation, graficoColinas } from "../services/graficoService";
 
 const Graficos: React.FC = () => {
   const chartRef = useRef<HTMLDivElement>(null);
   const [chartLabels, setChartLabels] = useState<string[]>([]); // Labels do eixo X
-  const [chartDataHumidity, setChartDataHumidity] = useState<number[]>([]); // Dados de umidade
-  const [chartDataCharge, setChartDataCharge] = useState<number[]>([]); // Dados de carga
-  const [chartDataWindSpeedInst, setChartDataWindSpeedInst] = useState<
-    number[]
-  >([]); // Velocidade do vento instantânea
-  const [chartDataWindSpeedAvg, setChartDataWindSpeedAvg] = useState<number[]>(
-    []
-  ); // Velocidade do vento média
-  const [chartDataWindDirInst, setChartDataWindDirInst] = useState<number[]>(
-    []
-  ); // Direção do vento instantânea
+  const [chartDataStation, setChartDataStation] = useState<number[]>([]); // Dados de WindSpeedAvg para Station
+  const [chartDataColinas, setChartDataColinas] = useState<number[]>([]); // Dados de WindSpeedAvg para Colinas
+  const [selectedData, setSelectedData] = useState<string>("station"); // Opção selecionada
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await grafico("01-09-2024", "30-09-2024"); // Substitua pelas datas desejadas
-        console.log("Dados recebidos:", response);
-
+        const stationResponse = await graficoStation("01-09-2024", "30-09-2024");
+        const colinasResponse = await graficoColinas("01-09-2024", "30-09-2024");
+    
+        console.log("Station Response:", stationResponse);
+        console.log("Colinas Response:", colinasResponse);
+    
         // Processa os dados retornados
-        const labels = response.map((item: any) => `${item.Date} ${item.Time}`); // Combina Date e Time
-        const humidityData = response.map((item: any) =>
-          parseFloat(item["Hum_%"].replace(",", "."))
+        const stationLabels = stationResponse.map(
+          (item: any) => `${item.Date} ${item.Time}`
         );
-        const chargeData = response.map((item: any) =>
-          parseFloat(item["Charge "].replace(",", "."))
-        );
-        const windSpeedInstData = response.map((item: any) =>
-          parseFloat(item["WindSpeed_Inst "].replace(",", "."))
-        );
-        const windSpeedAvgData = response.map((item: any) =>
+        const stationData = stationResponse.map((item: any) =>
           parseFloat(item["WindSpeed_Avg "].replace(",", "."))
         );
-        const windDirInstData = response.map((item: any) =>
-          parseFloat(item["WindDir_Inst "].replace(",", "."))
+    
+        const colinasLabels = colinasResponse.map(
+          (item: any) => `${item.Date} ${item.Time}`
         );
-
+        const colinasData = colinasResponse.map((item: any) =>
+          parseFloat(item["WindSpeed_Avg "].replace(",", "."))
+        );
+    
+        console.log("Station Labels:", stationLabels);
+        console.log("Station Data:", stationData);
+        console.log("Colinas Labels:", colinasLabels);
+        console.log("Colinas Data:", colinasData);
+    
         // Atualiza os estados
-        setChartLabels(labels);
-        setChartDataHumidity(humidityData);
-        setChartDataCharge(chargeData);
-        setChartDataWindSpeedInst(windSpeedInstData);
-        setChartDataWindSpeedAvg(windSpeedAvgData);
-        setChartDataWindDirInst(windDirInstData);
+        setChartLabels(stationLabels); // Usa os labels de Station como base
+        setChartDataStation(stationData);
+        setChartDataColinas(colinasData);
       } catch (error) {
         console.error("Erro ao buscar dados do gráfico:", error);
       }
@@ -59,35 +53,43 @@ const Graficos: React.FC = () => {
   }, []);
 
   useEffect(() => {
+    const getSeriesData = () => {
+      if (selectedData === "station") {
+        return [
+          {
+            name: "Station - WindSpeedAvg",
+            type: "line",
+            data: chartDataStation,
+          },
+        ];
+      } else if (selectedData === "colinas") {
+        return [
+          {
+            name: "Colinas - WindSpeedAvg",
+            type: "line",
+            data: chartDataColinas,
+          },
+        ];
+      } else if (selectedData === "both") {
+        return [
+          {
+            name: "Station - WindSpeedAvg",
+            type: "line",
+            data: chartDataStation,
+          },
+          {
+            name: "Colinas - WindSpeedAvg",
+            type: "line",
+            data: chartDataColinas,
+          },
+        ];
+      }
+      return [];
+    };
+
     if (chartLabels.length > 0) {
       const options: ApexOptions = {
-        series: [
-          {
-            name: "Umidade (%)",
-            type: "line",
-            data: chartDataHumidity,
-          },
-          {
-            name: "Carga",
-            type: "line",
-            data: chartDataCharge,
-          },
-          {
-            name: "Velocidade do Vento (Inst)",
-            type: "line",
-            data: chartDataWindSpeedInst,
-          },
-          {
-            name: "Velocidade do Vento (Média)",
-            type: "line",
-            data: chartDataWindSpeedAvg,
-          },
-          {
-            name: "Direção do Vento (Inst)",
-            type: "line",
-            data: chartDataWindDirInst,
-          },
-        ],
+        series: getSeriesData(),
         chart: {
           height: 350,
           type: "line",
@@ -100,7 +102,7 @@ const Graficos: React.FC = () => {
         },
         yaxis: {
           title: {
-            text: "Valores",
+            text: "WindSpeedAvg",
           },
         },
         tooltip: {
@@ -125,19 +127,44 @@ const Graficos: React.FC = () => {
         };
       }
     }
-  }, [
-    chartLabels,
-    chartDataHumidity,
-    chartDataCharge,
-    chartDataWindSpeedInst,
-    chartDataWindSpeedAvg,
-    chartDataWindDirInst,
-  ]);
+  }, [chartLabels, chartDataStation, chartDataColinas, selectedData]);
 
   return (
     <>
       <Header />
       <div className="grafico-container">
+        <div className="controls">
+          <label>
+            <input
+              type="radio"
+              name="dataOption"
+              value="station"
+              checked={selectedData === "station"}
+              onChange={() => setSelectedData("station")}
+            />
+            Station
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="dataOption"
+              value="colinas"
+              checked={selectedData === "colinas"}
+              onChange={() => setSelectedData("colinas")}
+            />
+            Colinas
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="dataOption"
+              value="both"
+              checked={selectedData === "both"}
+              onChange={() => setSelectedData("both")}
+            />
+            Ambos
+          </label>
+        </div>
         <div id="chart" ref={chartRef} />
       </div>
     </>
