@@ -1,5 +1,6 @@
 import express from 'express';
 import StationRoutes  from './routes/StationRoutes'
+import ColinasRoutes from './routes/ColinasRoutes'
 import AuthRoutes  from './routes/AuthRoutes'
 import UserRoutes  from './routes/AuthRoutes'
 import { connect } from './database/mongoose';
@@ -18,6 +19,7 @@ connect();
 app.use('/', AuthRoutes);
 app.use('/', UserRoutes);
 app.use('/', StationRoutes);
+app.use('/', ColinasRoutes);
 
 app.listen(PORT, () => {
     console.log(`Servidor rodando na pota http://localhost:${PORT}`);
