@@ -1,85 +1,117 @@
 .login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh; /* Garante que o contêiner tenha pelo menos a altura da tela */
-    width: 100vw; /* Garante que o contêiner tenha a largura total da tela */
-    background-image: url("../assets/img/Lago.jpg"); /* Caminho para a imagem */
-    background-size: cover; /* Faz a imagem cobrir toda a tela */
-  }
-  
-  .login-form {
-    display: flex;
-    flex-direction: column;
-    height:350px;
-    width: 300px;
-    padding: 20px;
-    background-color :  rgba(48, 93, 133, 0.6);
-    border-radius: 30px;
-    border: 1px solid #777777;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .login-error {
-    color: red;
-    text-align: center;
-    margin-bottom: 10px;
-  }
-  
-  .login-input {
-    margin-bottom: 10px;
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 4px;
-    background-color: rgba(42, 74, 108, 0.8);
-    border: none; /* Remove a borda padrão */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5), /* Sombra principal */
-                0 1px 3px rgba(0, 0, 0, 0.1); /* Sombra secundária mais sutil */
-    transition: box-shadow 0.3s ease; /* Animação para suavizar a interação */
-  }
-  
-  .login-input:focus {
-    border-color: #007bff;
-    outline: none;
-  }
-  
-  .login-button {
-    padding: 10px;
-    font-size: 16px;
-    background-color: #065db9;
-    color: white;
-    border: 1px solid #ffffff;
-    border-radius: 15px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: auto;
-  }
-  
-  .login-button:hover {
-    background-color: #0056b3;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+  background-image: url("../assets/img/Lago.jpg");
+  background-size: cover;
+  background-position: center;
+}
 
-  html, body {
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+.login-form {
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+  padding: 25px 20px;
+  background: rgba(48, 93, 133, 0.4); /* Transparente */
+  border-radius: 30px;
+  border: 1px solid #ffffff44;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  transition: transform 0.3s ease;
+  color: #fff;
+}
 
-  ::placeholder {
-    color: #a3a3a3fd;
-  }
+.login-form:hover {
+  transform: scale(1.02);
+}
 
-  .login-logo-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px; /* Espaço entre a logo e os campos do formulário */
-  }
-  
-  .login-logo {
-    border-radius: 100px;
-    width: 120px; /* Ajuste o tamanho da imagem */
-    height: 120px; /* Mantém a proporção da imagem */
-    box-shadow: 0 4px 6px rgba(0, 4, 0, 0.50);
-  }
+.login-logo-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.login-logo {
+  border-radius: 100px;
+  width: 100px;
+  height: 100px;
+  box-shadow: 0 4px 6px rgba(0, 4, 0, 0.5);
+}
+
+.login-error {
+  color: #ff4d4d;
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.login-input {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: none;
+  background-color: rgba(42, 74, 108, 0.8);
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5),
+              0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+  box-sizing: border-box;
+  margin-bottom: 12px;
+}
+
+.login-input:focus {
+  outline: none;
+  border: 1px solid #0fafff;
+  background-color: rgba(42, 74, 108, 1);
+}
+
+.login-button {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  background-color: #0d6efd;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 8px;
+}
+
+.login-button:hover {
+  background-color: #0554b3;
+  transform: scale(1.01);
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+::placeholder {
+  color: #cfcfcf;
+}
+
+
+.login-cadastro-link button {
+  background: none;
+  border: none;
+  color: #f3f3f3;
+  cursor: pointer;
+  font-size: 14px;
+  text-decoration: underline;
+  transition: transform 0.1s ease; /* Adiciona uma transição suave */
+}
+
+.login-cadastro-link button:hover {
+  transform: scale(1.10); /* Aumenta em 5% */
+  text-decoration: none; /* Opcional: remove o underline no hover */
+}
