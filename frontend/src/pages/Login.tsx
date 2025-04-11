@@ -2,12 +2,15 @@ import { useState } from "react";
 import { login } from "../services/loginService";
 import CadastroForm from "../components/CadastroForm/CadastroForm";
 import "../styles/LoginPage.css";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [mostrarCadastro, setMostrarCadastro] = useState(false);
+  
+  const navigate = useNavigate();
 
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -16,7 +19,8 @@ export default function Login() {
     try {
       const response = await login(email, password);
       localStorage.setItem("@Auth:token", response.token);
-
+      navigate("/home-page");
+      
     } catch (err) {
       setError("Credenciais inválidas. Tente novamente.");
     }

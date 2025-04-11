@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "apex": "^0.1.2",
+    "apexcharts": "^4.5.0"
+  }
+}

@@ -15,7 +15,7 @@ class StationController {
 
     public async read(_req: Request, res: Response): Promise<void> {
         try {
-            const station = await Station.find();
+            const station = await Station.find().limit(10);
             res.status(200).json(station);
         } catch (err) {
             console.log(err);
