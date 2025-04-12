@@ -4,7 +4,7 @@ import "../styles/GraficoPage.css";
 import Header from "../components/Header/header";
 import { graficoStation, graficoColinas } from "../services/graficoService";
 
-const Graficos: React.FC = () => {
+const Graficos2: React.FC = () => {
   const chartRef = useRef<HTMLDivElement>(null);
   const [chartLabels, setChartLabels] = useState<string[]>([]); // Labels do eixo X
   const [chartDataStation, setChartDataStation] = useState<number[]>([]); // Dados de WindSpeedAvg para Station
@@ -25,14 +25,14 @@ const Graficos: React.FC = () => {
           (item: any) => `${item.Date} ${item.Time}`
         );
         const stationData = stationResponse.map((item: any) =>
-          parseFloat(String(item["WindSpeed_Avg "] ?? "0").replace(",", "."))
+          parseFloat(String(item["WindSpeed_Inst "] ?? "0").replace(",", "."))
         );
     
         const colinasLabels = colinasResponse.map(
           (item: any) => `${item.Date} ${item.Time}`
         );
         const colinasData = colinasResponse.map((item: any) =>
-          parseFloat(String(item["WindSpeed_Avg "] ?? "0").replace(",", "."))
+          parseFloat(String(item["WindSpeed_Inst "] ?? "0").replace(",", "."))
         );
     
         console.log("Station Labels:", stationLabels);
@@ -41,9 +41,9 @@ const Graficos: React.FC = () => {
         console.log("Colinas Data:", colinasData);
     
         // Atualiza os estados
-        setChartLabels(stationLabels.slice(0, 10));
-        setChartDataStation(stationData.slice(0, 10));
-        setChartDataColinas(colinasData.slice(0, 10));
+        setChartLabels(stationLabels); // Usa os labels de Station como base
+        setChartDataStation(stationData);
+        setChartDataColinas(colinasData);
       } catch (error) {
         console.error("Erro ao buscar dados do gráfico:", error);
       }
@@ -57,7 +57,7 @@ const Graficos: React.FC = () => {
       if (selectedData === "station") {
         return [
           {
-            name: "Station - WindSpeedAvg",
+            name: "Station - WindSpeed_Inst",
             type: "line",
             data: chartDataStation,
           },
@@ -65,7 +65,7 @@ const Graficos: React.FC = () => {
       } else if (selectedData === "colinas") {
         return [
           {
-            name: "Colinas - WindSpeedAvg",
+            name: "Colinas - WindSpeed_Inst",
             type: "line",
             data: chartDataColinas,
           },
@@ -73,12 +73,12 @@ const Graficos: React.FC = () => {
       } else if (selectedData === "both") {
         return [
           {
-            name: "Station - WindSpeedAvg",
+            name: "Station - WindSpeed_Inst",
             type: "line",
             data: chartDataStation,
           },
           {
-            name: "Colinas - WindSpeedAvg",
+            name: "Colinas - WindSpeed_Inst",
             type: "line",
             data: chartDataColinas,
           },
@@ -102,7 +102,7 @@ const Graficos: React.FC = () => {
         },
         yaxis: {
           title: {
-            text: "WindSpeedAvg",
+            text: "WindSpeed_Inst",
           },
         },
         tooltip: {
@@ -171,4 +171,4 @@ const Graficos: React.FC = () => {
   );
 };
 
-export default Graficos;
+export default Graficos2;
