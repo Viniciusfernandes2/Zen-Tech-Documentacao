@@ -1,0 +1,38 @@
+.chatbot-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 2rem auto;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 1rem;
+    background: #f9f9f9;
+    font-family: sans-serif;
+  }
+  
+  .chatbot-messages {
+    height: 300px;
+    overflow-y: auto;
+    padding-bottom: 1rem;
+  }
+  
+  .chatbot-message {
+    margin-bottom: 0.75rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+    background-color: #eaeaea;
+  }
+  
+  .chatbot-form {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .chatbot-form input {
+    flex: 1;
+    padding: 0.5rem;
+  }
+  
+  .chatbot-form button {
+    padding: 0.5rem 1rem;
+  }
+  

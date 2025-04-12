@@ -25,14 +25,14 @@ const Graficos2: React.FC = () => {
           (item: any) => `${item.Date} ${item.Time}`
         );
         const stationData = stationResponse.map((item: any) =>
-          parseFloat(item["WindSpeed_Inst "].replace(",", "."))
+          parseFloat(String(item["WindSpeed_Inst "] ?? "0").replace(",", "."))
         );
     
         const colinasLabels = colinasResponse.map(
           (item: any) => `${item.Date} ${item.Time}`
         );
         const colinasData = colinasResponse.map((item: any) =>
-          parseFloat(item["WindSpeed_Inst "].replace(",", "."))
+          parseFloat(String(item["WindSpeed_Inst "] ?? "0").replace(",", "."))
         );
     
         console.log("Station Labels:", stationLabels);

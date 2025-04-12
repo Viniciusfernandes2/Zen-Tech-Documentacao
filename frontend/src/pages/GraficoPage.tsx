@@ -25,14 +25,14 @@ const Graficos: React.FC = () => {
           (item: any) => `${item.Date} ${item.Time}`
         );
         const stationData = stationResponse.map((item: any) =>
-          parseFloat(item["WindSpeed_Avg "].replace(",", "."))
+          parseFloat(String(item["WindSpeed_Avg "] ?? "0").replace(",", "."))
         );
     
         const colinasLabels = colinasResponse.map(
           (item: any) => `${item.Date} ${item.Time}`
         );
         const colinasData = colinasResponse.map((item: any) =>
-          parseFloat(item["WindSpeed_Avg "].replace(",", "."))
+          parseFloat(String(item["WindSpeed_Avg "] ?? "0").replace(",", "."))
         );
     
         console.log("Station Labels:", stationLabels);
@@ -41,9 +41,9 @@ const Graficos: React.FC = () => {
         console.log("Colinas Data:", colinasData);
     
         // Atualiza os estados
-        setChartLabels(stationLabels); // Usa os labels de Station como base
-        setChartDataStation(stationData);
-        setChartDataColinas(colinasData);
+        setChartLabels(stationLabels.slice(0, 10));
+        setChartDataStation(stationData.slice(0, 10));
+        setChartDataColinas(colinasData.slice(0, 10));
       } catch (error) {
         console.error("Erro ao buscar dados do gráfico:", error);
       }
