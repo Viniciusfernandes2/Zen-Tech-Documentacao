@@ -11,7 +11,6 @@
 <a  href="#sprint">Entrega de Sprints</a> |
 <a  href="#tecnologias">Tecnologias</a> |
 <a  href="#equipe">Nossa Equipe</a> |
-<a  href=#useStories> Use Stories</a>
 </p>
 <span  id="sobre">  
 <br>
@@ -50,9 +49,9 @@ Cada entrega foi realizada a partir da data definida com o cliente, com o relat�
 
 | Sprint | Previsão de Entrega | Status | Histórico |
 | ------ | -------------------- | ------ | --------- |
-|   1    | 📅 00/00/2025        | :construction:  | [:round_pushpin: Ver Relatório]( ) |
-|   2    | 📅 00/00/2025        | [-]  | [:round_pushpin: Ver Relatório]( ) |
-|   3    | 📅 00/00/2025        | [-]  | [:round_pushpin: Ver Relatório]( ) |
+|   1    | 📅 15/04/2025        | :construction:  | [:round_pushpin: Ver Relatório]( ) |
+|   2    | 📅 13/05/2025        | [-]  | [:round_pushpin: Ver Relatório]( ) |
+|   3    | 📅 10/06/2025        | [-]  | [:round_pushpin: Ver Relatório]( ) |
 
 </div>
 
@@ -109,9 +108,6 @@ Product Backlog :
 <div>
 <h2>
 Requisitos do Cliente :
-  
-Colocar PDF
-
 </h2>
 
  <h3> Requisitos funcionais :</h3>
@@ -141,17 +137,6 @@ Colocar PDF
 <p>RNF02 – A interface deve ser responsiva, garantindo um layout consistente em diferentes 
 dispositivos e tamanhos de tela;</p>
 <p>RNF03 – O sistema deve incluir uma página explicativa sobre o projeto.</p>
-</div>
-
-<br>
-
-##### [🔝 Voltar ao topo ](#topo)
-
-<div>
-<span  id="useStories">
-<h2>
-Use Stories :
-</h2>  
 </div>
 
 <br>
@@ -225,11 +210,11 @@ Nossa quipe :
 
 | Função          | Nome                          | Links                                                                                                                         |
 |-----------------|-------------------------------|-------------------------------------------------------------------------------------------------------------------------------|
-| Project Owner   | Tiago Santini Da Silva     | |
-| Scrum Master    | Luana Pinheiro dos Santos Ve | |
-| Dev Team        | Bruno Henrique Menezes Ramos |  |
-| Dev Team        | Vinicius Barbosa Fernandes    | |
-| Dev Team        | Edlaine De Paula Souza | |
-| Dev Team        | Caio Cesar Silva Azevedo dos Reis | |
+| Project Owner   | Tiago Santini Da Silva     | <a href="https://github.com/TiagoSan77">Github</a>|
+| Scrum Master    | Luana Pinheiro dos Santos Ve | <a href="">Github</a>|
+| Dev Team        | Bruno Henrique Menezes Ramos | <a href="">Github</a> |
+| Dev Team        | Vinicius Barbosa Fernandes    | <a href="">Github</a>|
+| Dev Team        | Edlaine De Paula Souza | <a href="">Github</a>|
+| Dev Team        | Caio Cesar Silva Azevedo dos Reis |<a href="">Github</a> |
 
 </div>
