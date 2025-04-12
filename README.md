@@ -21,7 +21,9 @@
 Sobre o Projeto :📋 
 </h2>
 <p>
- Plataforma para visualização gráfica de dados meteorológicos coletados por três estações no Lago de Furnas, com sistema de alertas para risco aos navegantes nos 30 municípios vizinhos. 
+ Este projeto foi desenvolvido pela equipe ZenTech com o objetivo de criar uma plataforma web interativa para a visualização e análise de dados meteorológicos, coletados por três estações instaladas no Lago de Furnas. A aplicação tem como finalidade monitorar variáveis ambientais críticas, como velocidade do vento, temperatura, umidade, entre outras, proporcionando uma experiência gráfica intuitiva aos usuários.
+
+A solução contribui para a prevenção de acidentes náuticos, além de possibilitar o acompanhamento climático histórico e atual, promovendo o uso consciente e seguro do Lago de Furnas. 
 </p>
 <br/>
 
