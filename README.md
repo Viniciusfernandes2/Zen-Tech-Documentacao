@@ -40,23 +40,6 @@ A solução contribui para a prevenção de acidentes náuticos, além de possib
 <br>
 <h2>Gif do projeto functionando.</h2>
 
-<h2>Modo de Configuração backend:</h2>
-<p>1° Certifique que o seu banco de dados tenha essa estrutura: </p>
-<p><strong>Como instalar o projeto:</strong></p>
-<ol>
-  <li>Navegue até a pasta <code>/backend</code> do projeto.</li>
-  <li>Crie um arquivo chamado <code>.env</code> na raiz da pasta <code>/backend</code>.</li>
-  <li>Adicione as seguintes variáveis ao arquivo <code>.env</code>:</li>
-</ol>
-
-<pre>
-DATABASE_URI= # coloque aqui a URI do seu banco de dados MongoDB
-PORT=3006
-SECRET="@TESTE"
-</pre>
-
-
-
 ##### [🔝 Voltar ao topo ](#topo)
 
 <h2 id="sprint">
