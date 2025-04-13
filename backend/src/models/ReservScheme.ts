@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const ColinasScheme = new mongoose.Schema({
+const ReservScheme = new mongoose.Schema({
     Date: { type: String, required: true },
     Time: { type: String, required: true },
     Temp_C: { type: Number, required: true },
@@ -16,5 +16,5 @@ const ColinasScheme = new mongoose.Schema({
     WindDir_Avg: { type: Number, required: true }
 }, { versionKey: false });
 
-const Colinas = mongoose.model('Colinas', ColinasScheme,'colina');// coloque o nome exato que esta a colection do bd do pc de vcs, aqui esta colina
-export default Colinas;
+const Reserv = mongoose.model('Station', ReservScheme,'reservatorio');// coloque o nome exato que esta a colection do bd do pc de vcs, aqui ta reservatorio
+export default Reserv;
