@@ -1,4 +1,4 @@
-# Zen-Tech-Documentacao
+# Zen-Tech - Documentação
 <div>
 <img style="vertical-align: middle" alt="logo-Zen-Tech" src="./zen tech logo.webp">
 </div>
@@ -205,7 +205,7 @@ Tecnologias :
 <div>
 <h2>
 <span id="equipe">  
-Nossa quipe :
+Nossa Equipe :
 </h2>
 
 <div align="center">
@@ -220,3 +220,16 @@ Nossa quipe :
 | Dev Team        | Caio Cesar Silva Azevedo dos Reis |<a href="">Github</a> |
 
 </div>
+
+<div>
+ <h2>
+ Burndown 
+ </h2>
+ <h3>
+ Sprint 1
+ </h3>
+<div align="center">
+<img style="vertical-align: middle" alt="Burndown---Sprint-1-(2)" src="./Burndown - Sprint 1 (2).png">
+</div>
+</div>
+
