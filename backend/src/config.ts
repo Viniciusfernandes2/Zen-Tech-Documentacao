@@ -5,20 +5,9 @@ import path from 'path';
 const envPath = path.resolve(__dirname, '../.env');
 dotenv.config({ path: envPath });
 
-
-//QUANDO CRIAREM A .ENV SUBSTITUAM ISSO 
-
-// export const DATABASE_URI = 'mongodb://localhost:27017/abp';
-export const DATABASE_URI = 'mongodb+srv://tiago:1snuCxZzTmwYdOHi@cluster0.51trz.mongodb.net/abp' //URI DO MEU BANCO NUVEM TIAGO.
-export const PORT = 3006
-export const SECRET = "@TESTE"
-
-
-//POR ISSO
-
-//export const DATABASE_URI = process.env.DATABASE_URI || 'mongodb://localhost:27017/abp';
-//export const PORT = process.env.PORT || 3006;
-//export const SECRET = process.env.SECRET || '@TESTE';
+export const DATABASE_URI = process.env.DATABASE_URI || 'mongodb://localhost:27017/abp';
+export const PORT = process.env.PORT || 3006;
+export const SECRET = process.env.SECRET || '@TESTE';
 
 
 //CRIEM UM ARQUIVO .ENV E COLOQUEM AS VARIAVEIS ABAIXO:
