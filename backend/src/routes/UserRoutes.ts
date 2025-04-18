@@ -1,10 +1,17 @@
-import {Router} from "express";
-import user from "../controllers/UserController"
-import { auth } from "../middlewares/AuthMiddleware";
-const router = Router();
+import express from 'express';
+import UserController from '../controllers/UserController';
+import { UserRepository } from '../Repository/UserRepository';
 
-router.get('/users',auth, user.read);
-router.put('/users/:id',auth, user.update);
-router.delete('/users/:id',auth, user.delete);
+const app = express();
+app.use(express.json());
 
-export default router;
+const userRepository = new UserRepository();
+const userController = new UserController(userRepository);
+
+app.post('/users/login', (req, res) => userController.login(req, res));
+app.post('/users', (req, res) => userController.create(req, res));
+app.get('/users', (req, res) => userController.read(req, res));
+app.put('/users/:id', (req, res) => userController.update(req, res));
+app.delete('/users/:id', (req, res) => userController.delete(req, res));
+
+app.listen(3000, () => console.log('Servidor rodando na porta 3000'));

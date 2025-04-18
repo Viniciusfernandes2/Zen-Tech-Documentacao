@@ -7,6 +7,6 @@ dotenv.config({ path: envPath });
 
 export const DATABASE_URI = 'mongodb://localhost:27017/abp';
 export const PORT = 3006;
-export const SECRET = "@TESTE"
+export const SECRET = '@TESTE';
 
 // console.log('DATABASE_URI:', DATABASE_URI); // Isso está funcionando
