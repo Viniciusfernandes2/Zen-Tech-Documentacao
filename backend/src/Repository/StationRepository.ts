@@ -13,8 +13,8 @@ export class StationRepository implements IStationRepository<IStation> {
     return await this.model.create(station);
   }
 
-  public async find(limit = 10): Promise<IStation[]> {
-    return await this.model.find().limit(limit).exec();
+  public async find(): Promise<IStation[]> {
+    return await this.model.find().exec();
   }
 
   public async findByIdAndUpdate(
@@ -27,5 +27,9 @@ export class StationRepository implements IStationRepository<IStation> {
 
   public async findByIdAndDelete(id: Types.ObjectId | string): Promise<IStation | null> {
     return await this.model.findByIdAndDelete(id).exec();
+  }
+
+  public async findById(id: Types.ObjectId | string): Promise<IStation | null> {
+    return await this.model.findById(id).exec();
   }
 }

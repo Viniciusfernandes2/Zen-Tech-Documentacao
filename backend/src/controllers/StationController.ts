@@ -59,6 +59,21 @@ class StationController {
       res.status(500).json({ message: 'Erro interno no servidor' });
     }
   }
+
+  public async findById(req: Request, res: Response): Promise<void> {
+    try {
+      const { id } = req.params;
+      const station = await this.stationService.getStationById(id);
+      if (!station) {
+        res.status(404).json({ message: 'Estação não encontrada' });
+        return;
+      }
+      res.status(200).json(station);
+    } catch (err) {
+      console.log(err);
+      res.status(500).json({ message: 'Erro interno no servidor' });
+    }
+  }
 }
 
 export default StationController;

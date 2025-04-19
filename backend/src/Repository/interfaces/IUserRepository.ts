@@ -1,7 +1,11 @@
-export interface IUserRepository {
-  create(user: any): Promise<any>;
-  find(query?: any): Promise<any[]>;
-  findOne(query: any): Promise<any | null>;
-  updateOne(id: string, update: any): Promise<any>;
-  findByIdAndDelete(id: string): Promise<any | null>;
+import { Document, Types } from 'mongoose';
+
+export interface IUserRepository<T extends Document> {
+  create(user: Partial<T>): Promise<T>;
+  find(limite?: number): Promise<T[]>;
+  findOne(data: Types.ObjectId | string): Promise<T | null>;
+  findOneByEmail(email: string): Promise<T | null>;
+  findById(id: Types.ObjectId | string): Promise<T | null>;
+  findByIdAndUpdate(id: Types.ObjectId | string, userData: Partial<T>, options?: { new: boolean }): Promise<T | null>;
+  findByIdAndDelete(id: Types.ObjectId | string): Promise<Types.ObjectId | string | null | null>;
 }

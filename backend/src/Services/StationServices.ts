@@ -1,7 +1,6 @@
 import { IStationRepository } from '../Repository/interfaces/IStationRepository';
 import { IStation } from '../models/StationScheme';
 import { StationResponse } from './Response/StationResponse';
-import { IStationDTO } from './interfaces/DTO/IStationDTO';
 import { IStationResponse } from './interfaces/IStationResponse';
 
 export class StationService {
@@ -40,6 +39,14 @@ export class StationService {
     if (!existingStation) {
       return { message: 'Estação não encontrada.' };
     }
+  }
+
+  public async getStationById(id: string): Promise<IStationResponse> {
+    const station = await this.stationRepository.findById(id);
+    if (!station) {
+      return { message: 'Estação não encontrada.', IStationDTO: null as any };
+    }
+    return StationResponse.stationResponse(station, 'Estação encontrada com sucesso.');
   }
 
 }

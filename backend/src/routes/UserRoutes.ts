@@ -1,12 +1,14 @@
 import express from 'express';
 import UserController from '../controllers/UserController';
 import { UserRepository } from '../Repository/UserRepository';
+import { UserServices } from '../Services/UserServices';
 
 const app = express();
 app.use(express.json());
 
 const userRepository = new UserRepository();
-const userController = new UserController(userRepository);
+const userService = new UserServices(userRepository);
+const userController = new UserController(userService);
 
 app.post('/users/login', (req, res) => userController.login(req, res));
 app.post('/users', (req, res) => userController.create(req, res));
