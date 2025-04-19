@@ -31,8 +31,8 @@ class UserController {
 
   public async create(req: Request, res: Response): Promise<void> {
     try {
-      const { name, email, password, numero } = req.body;
-      const userResponse = await this.userService.createUser({ name, email, password, numero });
+      const { name, email, password, role, numero } = req.body;
+      const userResponse = await this.userService.createUser({ name, email, password, role, numero });
 
       res.status(201).json({ message: userResponse.message, user: userResponse.user });
     } catch (error: any) {
