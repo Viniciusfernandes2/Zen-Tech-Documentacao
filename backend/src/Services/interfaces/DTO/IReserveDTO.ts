@@ -1,4 +1,4 @@
-export interface IStationDTO {
+export interface IReserveDTO {
   Date: string;
   Time: string;
   Temp_C: number;

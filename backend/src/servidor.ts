@@ -18,7 +18,6 @@ app.use(express.json());
 
 connect();
 
-//Essa é a unica rota que deve ser chamada aqui !!!!!!!
 app.use('/', Routes)
 
 app.listen(PORT, () => {

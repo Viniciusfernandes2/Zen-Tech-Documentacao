@@ -1,6 +1,6 @@
 import { Document, Types } from 'mongoose';
 
-export interface IStationRepository<T extends Document> {
+export interface IReserveRepository<T extends Document> {
   create(station: Partial<T>): Promise<T>;
   find(limit?: number): Promise<T[]>;
   findById(id: Types.ObjectId | string): Promise<T | null>;

@@ -1,6 +1,5 @@
 import mongoose, { Document } from 'mongoose';
 
-// Interface para tipar o documento
 export interface IReserve extends Document {
   Date: string;
   Time: string;

@@ -1,10 +1,10 @@
 import { Request, Response } from 'express';
-import { StationService } from '../Services/StationServices';
+import { ReserveService } from '../Services/ReserveService';
 
-class StationController {
-  private stationService: StationService;
+class ReservController {
+  private stationService: ReserveService;
 
-  constructor(stationService: StationService) {
+  constructor(stationService: ReserveService) {
     this.stationService = stationService;
   }
 
@@ -76,4 +76,4 @@ class StationController {
   }
 }
 
-export default StationController;
+export default ReservController;

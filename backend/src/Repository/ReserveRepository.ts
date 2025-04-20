@@ -1,8 +1,8 @@
 import { Model, Types } from 'mongoose';
 import Reserve, { IReserve } from '../models/ReserveSchema';
-import { IStationRepository } from './interfaces/IStationRepository';
+import { IReserveRepository } from './interfaces/IReserveRepository';
 
-export class StationRepository implements IStationRepository<IReserve> {
+export class ReserveRepository implements IReserveRepository<IReserve> {
   private model: Model<IReserve>;
 
   constructor() {
