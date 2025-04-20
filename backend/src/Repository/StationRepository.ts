@@ -1,35 +1,35 @@
 import { Model, Types } from 'mongoose';
-import Station, { IStation } from '../models/StationScheme';
+import Reserve, { IReserve } from '../models/ReserveSchema';
 import { IStationRepository } from './interfaces/IStationRepository';
 
-export class StationRepository implements IStationRepository<IStation> {
-  private model: Model<IStation>;
+export class StationRepository implements IStationRepository<IReserve> {
+  private model: Model<IReserve>;
 
   constructor() {
-    this.model = Station;
+    this.model = Reserve;
   }
 
-  public async create(station: Partial<IStation>): Promise<IStation> {
+  public async create(station: Partial<IReserve>): Promise<IReserve> {
     return await this.model.create(station);
   }
 
-  public async find(): Promise<IStation[]> {
+  public async find(): Promise<IReserve[]> {
     return await this.model.find().exec();
   }
 
   public async findByIdAndUpdate(
     id: Types.ObjectId | string,
-    station: Partial<IStation>,
+    station: Partial<IReserve>,
     options = { new: true }
-  ): Promise<IStation | null> {
+  ): Promise<IReserve | null> {
     return await this.model.findByIdAndUpdate(id, station, options).exec();
   }
 
-  public async findByIdAndDelete(id: Types.ObjectId | string): Promise<IStation | null> {
+  public async findByIdAndDelete(id: Types.ObjectId | string): Promise<IReserve | null> {
     return await this.model.findByIdAndDelete(id).exec();
   }
 
-  public async findById(id: Types.ObjectId | string): Promise<IStation | null> {
+  public async findById(id: Types.ObjectId | string): Promise<IReserve | null> {
     return await this.model.findById(id).exec();
   }
 }

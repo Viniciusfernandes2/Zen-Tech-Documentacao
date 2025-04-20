@@ -1,16 +1,16 @@
 import { IStationRepository } from '../Repository/interfaces/IStationRepository';
-import { IStation } from '../models/StationScheme';
+import { IReserve } from '../models/ReserveSchema';
 import { StationResponse } from './Response/StationResponse';
 import { IStationResponse } from './interfaces/IStationResponse';
 
 export class StationService {
-  private stationRepository: IStationRepository<IStation>;
+  private stationRepository: IStationRepository<IReserve>;
 
-  constructor(stationRepository: IStationRepository<IStation>) {
+  constructor(stationRepository: IStationRepository<IReserve>) {
     this.stationRepository = stationRepository;
   }
 
-  public async createStation(stationData: Partial<IStation>): Promise<IStationResponse> {
+  public async createStation(stationData: Partial<IReserve>): Promise<IStationResponse> {
     const newStation = await this.stationRepository.create(stationData);
     return StationResponse.stationResponse(newStation, 'Estação criada com sucesso.');
   }
@@ -25,7 +25,7 @@ export class StationService {
 
   public async updateStation(
     id: string,
-    stationData: Partial<IStation>
+    stationData: Partial<IReserve>
   ): Promise<IStationResponse> {
     const updatedStation = await this.stationRepository.findByIdAndUpdate(id, stationData);
     if (!updatedStation) {

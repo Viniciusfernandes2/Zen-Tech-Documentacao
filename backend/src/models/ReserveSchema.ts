@@ -1,7 +1,7 @@
 import mongoose, { Document } from 'mongoose';
 
 // Interface para tipar o documento
-export interface IStation extends Document {
+export interface IReserve extends Document {
   Date: string;
   Time: string;
   Temp_C: number;
@@ -17,7 +17,7 @@ export interface IStation extends Document {
   WindDir_Avg: number;
 }
 
-const StationScheme = new mongoose.Schema<IStation>(
+const ReserveSchema = new mongoose.Schema<IReserve>(
   {
     Date: { type: String, required: true },
     Time: { type: String, required: true },
@@ -36,5 +36,5 @@ const StationScheme = new mongoose.Schema<IStation>(
   { versionKey: false }
 );
 
-const Station = mongoose.model<IStation>('Station', StationScheme, 'stations');
-export default Station;
+const Reserve = mongoose.model<IReserve>('Station', ReserveSchema, 'stations');
+export default Reserve;

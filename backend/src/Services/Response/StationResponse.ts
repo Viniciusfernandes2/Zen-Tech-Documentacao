@@ -1,8 +1,8 @@
-import { IStation } from "../../models/StationScheme";
+import { IReserve } from "../../models/ReserveSchema";
 import { IStationResponse } from "../interfaces/IStationResponse";
 
 export class StationResponse {
-  public static stationResponse(colinas: IStation, message?: string): IStationResponse {
+  public static stationResponse(colinas: IReserve, message?: string): IStationResponse {
     return {
       message: message,
       IStationDTO: {
