@@ -38,6 +38,7 @@ A solução contribui para a prevenção de acidentes náuticos, além de possib
 </div>
 
 <br>
+<h2>Gif do projeto functionando.</h2>
 
 ##### [🔝 Voltar ao topo ](#topo)
 

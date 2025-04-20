@@ -12,8 +12,6 @@ const CadastroForm: React.FC<CadastroFormProps> = ({ onCadastroConcluido }) => {
     name: "",
     email: "",
     password: "",
-    numero: "",
-    role: "",
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -26,7 +24,7 @@ const CadastroForm: React.FC<CadastroFormProps> = ({ onCadastroConcluido }) => {
     try {
       await registerUser(formData);
       alert("Usuário cadastrado com sucesso!");
-      setFormData({ name: "", email: "", password: "", numero: "", role: "" });
+      setFormData({ name: "", email: "", password: ""});
       onCadastroConcluido(); // Chama a função para voltar ao login
     } catch (error: any) {
       alert(error.message || "Erro ao cadastrar usuário.");
@@ -48,10 +46,6 @@ const CadastroForm: React.FC<CadastroFormProps> = ({ onCadastroConcluido }) => {
         <div>
           <label htmlFor="password">Senha:</label>
           <input type="password" placeholder="Ex:'1234'" id="password" name="password" value={formData.password} onChange={handleChange} required />
-        </div>
-        <div>
-          <label htmlFor="numero">Número:</label>
-          <input type="text" id="numero" placeholder="(ddd)4002-8922" name="numero" value={formData.numero} onChange={handleChange} required />
         </div>
         <button type="submit">Cadastrar</button>
         <button type="button" onClick={onCadastroConcluido}>Cancelar</button>

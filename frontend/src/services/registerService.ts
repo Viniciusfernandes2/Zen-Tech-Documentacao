@@ -4,7 +4,6 @@ interface RegisterData {
   name: string;
   email: string;
   password: string;
-  numero: string;
 }
 
 export async function registerUser(data: RegisterData) {

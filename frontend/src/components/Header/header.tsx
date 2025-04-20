@@ -11,13 +11,10 @@ const Header: React.FC = () => {
             </a>
           </li>
           <li className="graficos-button">
-            <a href="/grafico-page" className="nav-link"> WindSpeedAvg
+            <a href="/grafico-page" className="nav-link"> Gráficos
             </a>
           </li>
-          <li className="graficos-button">
-            <a href="/grafico-page2" className="nav-link"> WindSpeedInst
-            </a>
-          </li>
+
           <li className="sobre-button">
             <a href="/Sobre-page" className="nav-link"> Sobre
             </a>
