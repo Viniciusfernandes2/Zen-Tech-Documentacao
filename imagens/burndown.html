@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gráfico de Burndown</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <canvas id="burndownChart" width="800" height="400"></canvas>
+    <script>
+        // Total de pontos do projeto
+        const totalPontos = 15;
+
+        // Pontos realizados por dia
+        const pontosRealizados = [1, 1, 1, 1.25, 1.25, 1.25, 1.25, 1, 1, 1, 1, 1, 1, 1];
+
+        // Função para calcular os pontos planejados por dia
+        function calcularPontosPlanejados(totalPontos, dias) {
+            const pontosPlanejados = [totalPontos]; // Início com o total de pontos
+            for (let i = dias; i > 0; i--) {
+                pontosPlanejados.push(totalPontos * (i - 1) / dias);
+            }
+            return pontosPlanejados;
+        }
+
+        // Função para calcular o burndown
+        function calcularBurndown(totalPontos, pontosRealizados) {
+            const dias = pontosRealizados.length;
+            const burndown = [];
+            let acumulado = totalPontos;
+
+            for (let i = 0; i < dias; i++) {
+                acumulado -= pontosRealizados[i];
+                burndown.push(acumulado);
+            }
+
+            return burndown;
+        }
+
+        // Dados do gráfico
+        const dias = 14;
+        const pontosPlanejados = calcularPontosPlanejados(totalPontos, dias);
+        const burndown = calcularBurndown(totalPontos, pontosRealizados);
+
+        // Configuração do gráfico
+        const data = {
+            labels: ['Início', ...Array.from({ length: dias }, (_, i) => `Dia ${i + 1}`)],
+            datasets: [{
+                label: "Pontos Planejados",
+                borderColor: "black", // Preto
+                backgroundColor: "rgba(0, 0, 0, 0.1)", // Preto claro
+                data: pontosPlanejados
+            }, {
+                label: "Pontos Realizados",
+                borderColor: "red", // Vermelho
+                backgroundColor: "rgba(255, 0, 0, 0.1)", // Vermelho claro
+                data: [totalPontos, ...burndown]
+            }]
+        };
+
+        const options = {
+            responsive: true,
+            title: {
+                display: true,
+                text: 'Gráfico de Burndown'
+            },
+            legend: {
+                display: true,
+                position: 'bottom' // Mover a legenda para a parte inferior
+            },
+            scales: {
+                xAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Dias'
+                    }
+                }],
+                yAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Pontuação'
+                    },
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        };
+
+        // Criando o gráfico de burndown
+        const ctx = document.getElementById("burndownChart").getContext("2d");
+        const myChart = new Chart(ctx, {
+            type: 'line',
+            data: data,
+            options: options
+        });
+    </script>
+</body>
+</html>
