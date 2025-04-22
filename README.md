@@ -1,6 +1,6 @@
 # Zen-Tech - Documentação
-<div>
-<img style="vertical-align: middle" alt="logo-Zen-Tech" src="./zen tech logo.webp">
+<div align="center">
+<img  alt="logo-Zen-Tech" src="./imagens/zen tech logo.webp" height="400px" width="400px">
 </div>
 
 <span  id="topo">
@@ -51,9 +51,9 @@ Cada entrega foi realizada a partir da data definida com o cliente, com o relat�
 
 | Sprint | Previsão de Entrega | Status | Histórico |
 | ------ | -------------------- | ------ | --------- |
-|   1    | 📅 15/04/2025        | :construction:  | [:round_pushpin: Ver Relatório]( ) |
-|   2    | 📅 13/05/2025        | [-]  | [:round_pushpin: Ver Relatório]( ) |
-|   3    | 📅 10/06/2025        | [-]  | [:round_pushpin: Ver Relatório]( ) |
+|   1    | 📅 15/04/2025        | :white_check_mark:| [:round_pushpin: Ver Relatório](./Sprint01.md) |
+|   2    | 📅 16/04/2025        | 🚧  | [:round_pushpin: Ver Relatório](./Sprint02.md) 
+|   3    | 📅 14/05/2025        | [-]  | [:round_pushpin: Ver Relatório]( ) |
 
 </div>
 
@@ -208,7 +208,7 @@ Tecnologias :
 Nossa Equipe :
 </h2>
 
-<div align="center">
+<div>
 
 | Função          | Nome                          | Links                                                                                                                         |
 |-----------------|-------------------------------|-------------------------------------------------------------------------------------------------------------------------------|
@@ -221,15 +221,5 @@ Nossa Equipe :
 
 </div>
 
-<div>
- <h2>
- Burndown 
- </h2>
- <h3>
- Sprint 1
- </h3>
-<div align="center">
-<img style="vertical-align: middle" alt="Burndown---Sprint-1-(2)" src="./Burndown - Sprint 1 (2).png">
-</div>
 </div>
 
