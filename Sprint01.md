@@ -20,8 +20,8 @@ Cada entrega foi realizada a partir da data definida com o cliente, com o relat�
 | Sprint | Previsão de Entrega | Status | Histórico |
 | ------ | -------------------- | ------ | --------- |
 |   1    | 📅 15/04/2025        | :construction:  | [:round_pushpin: Ver Relatório]( ) |
-|   2    | 📅 13/05/2025        | [-]  | [:round_pushpin: Ver Relatório]( ) |
-|   3    | 📅 10/06/2025        | [-]  | [:round_pushpin: Ver Relatório]( ) |
+|   2    | 📅 16/04/2025        | [-]  | [:round_pushpin: Ver Relatório]( ) |
+|   3    | 📅 14/05/2025        | [-]  | [:round_pushpin: Ver Relatório]( ) |
 
 </div>
 
