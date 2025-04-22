@@ -74,7 +74,14 @@ Backlog da Spint 1:
 ##### [🔝 Voltar ao topo ](#topo)
 <br>
 
-<div align="center">
+<div>
+  <h2>Burndown Sprint 01</h2>
+  <img alt="Burndown---Sprint-1-(2)" src="./imagens/Burndown.png">
+</div>
+
+<br>
+<br>
+<div>
 
 | Função          | Nome                          | Links                                                                                                                         |
 |-----------------|-------------------------------|-------------------------------------------------------------------------------------------------------------------------------|
@@ -86,9 +93,3 @@ Backlog da Spint 1:
 | Dev Team        | Caio Cesar Silva Azevedo dos Reis |<a href="">Github</a> |
 
 </div>
-
-<div>
-  <h2>Burndown Sprint 01</h2>
-  <img alt="Burndown---Sprint-1-(2)" src="./imagens/Burndown.png">
-</div>
-
