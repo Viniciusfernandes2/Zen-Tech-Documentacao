@@ -216,7 +216,7 @@ Nossa Equipe :
 | Scrum Master    | Luana Pinheiro dos Santos Ve | <a href="">Github</a>|
 | Dev Team        | Bruno Henrique Menezes Ramos | <a href="">Github</a> |
 | Dev Team        | Vinicius Barbosa Fernandes    | <a href="">Github</a>|
-| Dev Team        | Edlaine De Paula Souza | <a href="">Github</a>|
+| Dev Team        | Edlaine De Paula Souza | <a href="https://github.com/edlaine-souza">Github</a>|
 | Dev Team        | Caio Cesar Silva Azevedo dos Reis |<a href="">Github</a> |
 
 </div>
