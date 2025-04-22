@@ -1,6 +1,6 @@
 
 
-# Zen-Tech - Documentação
+# Zen-Tech - Sprint 1
 <div align="center">
 <img  alt="logo-Zen-Tech" src="./imagens/zen tech logo.webp" height="400px" width="400px">
 </div>
