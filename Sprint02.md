@@ -46,16 +46,16 @@ A apresentação da Sprint 1 em vídeo por ser acessada por [aqui!]()
    
 |item  | Funcionalidade                     | Descrição                                                                                   | Prioridade |
 |----------|------------------------------------|---------------------------------------------------------------------------------------------|------------|
-| RP01| **Protótipo (Figma)**              | Criar protótipo das principais telas (Login, Cadastro, Home e Gráficos).                     | ALTA       |
-| RP02 | **Back-end – Autenticação**        | Implementar API de autenticação com Node.js, usando MongoDB e segurança (JWT).               | ALTA       |
-|  | **Home Page – Front-end**          | Desenvolver home page com navegação para as outras funcionalidades.                        | MÉDIA      |
-| RNF01 | **Tela de Gráficos e Estatísticas**| Exibir dados meteorológicos em gráficos interativos.                | MÉDIA      |
-| RP02 | **Infraestrutura Front-end**       | Configurar projeto React TypeScript, rotas e estrutura de componentes.                       | MÉDIA      |
-| RP02 | **Documentação no Github**       | Criar documentação do projeto com grafico bundown e backlog                       | MÉDIA      |
-| RNF02 | **Validação Responsiva**           | Garantir que as telas tenham layout responsivo em diferentes dispositivos.                   | BAIXA      |
 | RF02 | **Histórico de Dados (Tabular)**            | Exibir registros históricos de cada estação em forma de tabela. | ALTA       |
+| RP01| **Designer das Paginas (Figma)**              | Melhorar design das telas (Login, Cadastro, Home e Gráficos).                     | ALTA       |
+| RNF02 | **Validação Responsiva**           | Garantir que as telas tenham layout responsivo em diferentes dispositivos.                   | ALTA      |
+| RP02 | **Back-end – (MVC)**        | Aplicar padrão mvc no projeto               | ALTA       |
+|  | **Home Page – Front-end (Designer)**          | Aplicar designer do prototipo.                        | ALTA      |
+| RNF01 | **Tela de Gráficos e Estatísticas**| Aplicar designer do prototipo..                | MÉDIA      |
+| RP02 | **Documentação no Github**       | Criar documentação do projeto da Sprint 2 com grafico bundown e backlog                       | MÉDIA      |
 |  | **Sistema de Alertas e Notícias**           | Implementar lógica de alertas e exibi-los na home page (agora painel de notícias).  | ALTA       |
-| RP02| **Documentação**                      | Consolidar burndown e documentação no github     | MÉDIA      |
+| RP02| **Documentação**                      | Burndown Sprint 2, backlog da Sprint     | MÉDIA      |
+| RP02| **Trello**                      | Criar Sprint 2 do Trello     | MÉDIA      |
   </div>
 </div>
 
