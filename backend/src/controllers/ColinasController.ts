@@ -15,7 +15,7 @@ class ColinasController {
 
     public async read(_req: Request, res: Response): Promise<void> {
         try {
-            const colinas = await Colinas.find().limit(10);
+            const colinas = await Colinas.find();
             res.status(200).json(colinas);
         } catch (err) {
             console.log(err);

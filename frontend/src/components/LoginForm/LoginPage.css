@@ -4,7 +4,7 @@
   align-items: center;
   min-height: 100vh;
   width: 100vw;
-  background-image: url("../assets/img/Lago.jpg");
+  background-image: url("../../assets/img/Lago.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -87,6 +87,24 @@
   transform: scale(1.01);
 }
 
+.visitante-button {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  background-color: #aaa;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 8px;
+}
+
+.visitante-button:hover {
+  background-color: #888;
+  transform: scale(1.01);
+}
+
 html, body {
   height: 100%;
   width: 100%;
@@ -107,7 +125,6 @@ html, body {
   color: #f3f3f3;
   cursor: pointer;
   font-size: 14px;
-  text-decoration: underline;
   transition: transform 0.1s ease; /* Adiciona uma transição suave */
 }
 

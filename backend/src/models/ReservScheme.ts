@@ -16,5 +16,5 @@ const ReservScheme = new mongoose.Schema({
     WindDir_Avg: { type: String, required: true }
 }, { versionKey: false });
 
-const Reserv = mongoose.model('Station', ReservScheme,'reservatorio');// coloque o nome exato que esta a colection do bd do pc de vcs, aqui ta reservatorio
+const Reserv = mongoose.model('Station', ReservScheme,'abp');// coloque o nome exato que esta a colection do bd do pc de vcs, aqui ta reservatorio
 export default Reserv;

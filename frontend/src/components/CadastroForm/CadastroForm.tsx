@@ -33,7 +33,12 @@ const CadastroForm: React.FC<CadastroFormProps> = ({ onCadastroConcluido }) => {
 
   return (
     <div className="cadastro-container">
-      <h1>Cadastro de Usuário:</h1>
+      <div className="cadastro-logo-container">
+              <img src="/img/Logo.jpg" alt="Logo" className="cadastro-logo" />
+            </div>
+      <div className="cadastro-title-container">
+      <h1>Cadastre-se:</h1>
+        </div>      
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="name">Nome:</label>
