@@ -1,25 +1,23 @@
-/* Dashboard.css */
-
 .dashboard-container {
     display: flex;
     min-height: 100vh;
     font-family: Arial, sans-serif;
+    padding-top: 7%;
   }
   
   .sidebar {
     position: fixed;
-    top: 0;
+    top: 10%;
     left: 0;
-    width: 250px;
-    height: 100vh; /* Ocupa a altura total da tela */
+    width: 15%;
+    height: calc(100vh - 30px); 
     background-color: #f9f9f9;
     border-right: 1px solid #ccc;
-    padding: 1.5rem 1rem;
+    padding: 1.5rem 1rem; 
     box-shadow: 2px 0 4px rgba(0, 0, 0, 0.05);
-    overflow-y: auto; /* Adiciona rolagem se o conteúdo passar da tela */
-  }
-  
-  
+    overflow-y: auto; /* Adiciona rolagem vertical */
+}
+
   .sidebar h3 {
     font-size: 1.2rem;
     margin-bottom: 1rem;
@@ -28,27 +26,28 @@
   
   .sidebar label {
     display: block;
-    margin-bottom: 0.75rem;
+    background-color: #f9f9f9;
+    border-bottom: solid 1px grey;
+    padding: 7%;
     font-size: 0.95rem;
     cursor: pointer;
     color: #444;
-  }
-  
-  .sidebar input[type="checkbox"] {
-    margin-right: 0.5rem;
-    cursor: pointer;
-  }
-  
+    transition: all 0.3s ease; /* Adiciona uma transição suave */
+}
+
+.sidebar label:hover {
+    background-color: #e6e6e6; /* Cor de fundo ao passar o cursor */
+    transform: scale(1.02); /* Leve aumento no tamanho */
+}
   .content {
-    margin-left: 250px; /* mesma largura da sidebar */
-    padding: 2rem;
+    margin-left: 17%; /* mesma largura da sidebar */
     overflow-y: auto;
     background-color: #fff;
     width: calc(100% - 250px);
   }
   
-  
   .grafico-wrapper {
+    margin-left: 3%;
     margin-bottom: 2rem;
     border: 1px solid #e1e1e1;
     padding: 1rem;

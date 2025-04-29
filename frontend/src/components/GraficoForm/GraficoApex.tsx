@@ -104,6 +104,18 @@ const GraficoApex: React.FC<Props> = ({
         chart: {
           height: 350,
           type: "line",
+          zoom: {
+            enabled: false,
+          },
+          toolbar:{
+            tools:{
+            download: false,
+            zoom: false,
+            zoomin  : false,
+            zoomout : false,
+            pan     : false, 
+            },
+          },
         },
         stroke: {
           curve: "smooth",

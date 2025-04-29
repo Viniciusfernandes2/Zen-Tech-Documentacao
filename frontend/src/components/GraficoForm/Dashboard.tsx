@@ -109,7 +109,6 @@ const Dashboard: React.FC = () => {
   return (
     <div className="dashboard-container">
       <aside className="sidebar">
-        <h3>Gráficos Disponíveis</h3>
         {graficosDisponiveis.map((grafico) => (
           <label key={grafico.id}>
             <input
