@@ -2,7 +2,11 @@
   position: fixed;
   top: 0;
   left: 0;
+<<<<<<< HEAD
   height: 35px;
+=======
+  height: 5%;
+>>>>>>> d45d7d67bf4c9bc92863c556329ef8bc106c0f62
   width: 100%;
   padding: 15px 0;
   background: rgba(48, 93, 133, 0.4);

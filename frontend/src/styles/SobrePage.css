@@ -2,14 +2,13 @@
   display: flex; /* Alinha os cards lado a lado */
   justify-content: center; /* Centraliza os cards horizontalmente */
   align-items: center; /* Centraliza os cards verticalmente */
-  gap: 20px; /* Espaçamento entre os cards */
-  padding: 80px;
+  padding: 70px;
 }
 
-.sobre-card1, .sobre-card2 {
+.sobre-card{
   display: flex;
   flex-direction: column;
-  width: 300px; /* Ajuste o tamanho conforme necessário */
+  width: 800px; /* Ajuste o tamanho conforme necessário */
   height: 400px; /* Altura fixa para uniformidade */
   padding: 25px 20px;
   background: rgba(48, 93, 133, 0.4); /* Transparente */
@@ -20,4 +19,19 @@
   -webkit-backdrop-filter: blur(15px);
   transition: transform 0.3s ease;
   color: #fff;
+}
+
+.sobre-card:hover {
+  transform: scale(1.05); /* Aumenta o tamanho do card ao passar o mouse */
+}
+.sobre-card h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.sobre-card h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  text-align: center; /* Centraliza o título principal */
+  color: #fff; /* Cor do texto */
 }
