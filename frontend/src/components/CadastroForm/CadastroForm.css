@@ -19,17 +19,6 @@
     transform: scale(1.02);
   }
   
-  .h1 {
-    font-size: 28px;
-    font-weight: bold;
-    text-align: center;
-    color: #ffffff;
-    margin-bottom: 20px;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    letter-spacing: 1px;
-    background: linear-gradient(to right, #ffffff, #d3e0f5);
-    -webkit-text-fill-color: transparent;
-  }
   .cadastro-container form {
     display: flex;
     flex-direction: column;
@@ -89,4 +78,25 @@
   .cadastro-container button[type="button"]:hover {
     background-color: #888;
   }
+
+  .cadastro-logo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
   
+  .cadastro-logo {
+    border-radius: 100px;
+    width: 100px;
+    height: 100px;
+    box-shadow: 0 4px 6px rgba(0, 4, 0, 0.5);
+  }
+  
+.cadastro-title-container {
+  font-size: 0.7rem;    
+  font-weight: 300;
+  color: #ffffff;   
+  font-family: 'Poppins', -apple-system, sans-serif;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  line-height: 1.25;
+}

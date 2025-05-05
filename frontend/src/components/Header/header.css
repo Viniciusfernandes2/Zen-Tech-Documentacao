@@ -2,6 +2,7 @@
   position: fixed;
   top: 0;
   left: 0;
+  height: 5%;
   width: 100%;
   padding: 15px 0;
   background: rgba(48, 93, 133, 0.4);
@@ -37,14 +38,16 @@
 
 .home-button a,
 .graficos-button a,
-.sobre-button a {
+.sobre-button a,
+.table-button a {
   background-color: rgba(42, 74, 108, 0.8);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 .home-button a:hover,
 .graficos-button a:hover,
-.sobre-button a:hover {
+.sobre-button a:hover,
+.table-button a:hover {
   background-color: rgba(42, 74, 108, 1);
   transform: scale(1.05);
 }
