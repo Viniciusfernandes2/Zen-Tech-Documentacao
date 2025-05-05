@@ -1,10 +1,11 @@
 .tabela {
   border-collapse: collapse;
-  width: 100%;
+  width: 80%;
   background: #fff;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
   border-radius: 8px;
   overflow: hidden;
+  margin: 0 auto;
 }
 
 .tabela th, .tabela td {
@@ -55,3 +56,14 @@
   font-size: 15px;
   color: #333;
 } 
+.tabela-titulo {
+  text-align: center; 
+  margin-bottom: 20px; 
+  font-size: 35px;  
+  font-weight: bold; 
+  color: #333;  
+}
+
+.table-container {
+  margin-bottom: 35px;
+}

@@ -2,13 +2,13 @@ import React, { useEffect, useRef, useState } from "react";
 import ApexCharts, { ApexOptions } from "apexcharts";
 
 type Props = {
-  campo: string; // Ex: "WindSpeed_Inst " ou "WindDir_Avg "
+  campo: string;
   tituloY: string;
   nomeGraficoReserv: string;
   nomeGraficoColinas: string;
   nomeGrafico: string;
-  fetchReserv: (inicio: string, fim: string) => Promise<any[]>;
-  fetchColinas: (inicio: string, fim: string) => Promise<any[]>;
+  fetchReserv: () => Promise<any[]>;
+  fetchColinas: () => Promise<any[]>;
 };
 
 const GraficoApex: React.FC<Props> = ({
@@ -31,34 +31,34 @@ const GraficoApex: React.FC<Props> = ({
 
   const allSelected = checkedOptions.station && checkedOptions.colinas;
 
+  const fetchData = async () => {
+    try {
+      const reservResponse = await fetchReserv();
+      const colinasResponse = await fetchColinas();
+
+      const reservLabels = reservResponse.map(
+        (item: any) => `${item.Date} ${item.Time}`
+      );
+      const reservData = reservResponse.map((item: any) =>
+        parseFloat(String(item[campo] ?? "0").replace(",", "."))
+      );
+
+      const colinasLabels = colinasResponse.map(
+        (item: any) => `${item.Date} ${item.Time}`
+      );
+      const colinasData = colinasResponse.map((item: any) =>
+        parseFloat(String(item[campo] ?? "0").replace(",", "."))
+      );
+
+      setChartLabels(reservLabels.slice(0, 10));
+      setChartDataReserv(reservData.slice(0, 10));
+      setChartDataColinas(colinasData.slice(0, 10));
+    } catch (error) {
+      console.error("Erro ao buscar dados:", error);
+    }
+  };
+
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const reservResponse = await fetchReserv("01-09-2024", "30-09-2024");
-        const colinasResponse = await fetchColinas("01-09-2024", "30-09-2024");
-
-        const reservLabels = reservResponse.map(
-          (item: any) => `${item.Date} ${item.Time}`
-        );
-        const reservData = reservResponse.map((item: any) =>
-          parseFloat(String(item[campo] ?? "0").replace(",", "."))
-        );
-
-        const colinasLabels = colinasResponse.map(
-          (item: any) => `${item.Date} ${item.Time}`
-        );
-        const colinasData = colinasResponse.map((item: any) =>
-          parseFloat(String(item[campo] ?? "0").replace(",", "."))
-        );
-
-        setChartLabels(reservLabels.slice(0, 10));
-        setChartDataReserv(reservData.slice(0, 10));
-        setChartDataColinas(colinasData.slice(0, 10));
-      } catch (error) {
-        console.error("Erro ao buscar dados:", error);
-      }
-    };
-
     fetchData();
   }, [campo, fetchReserv, fetchColinas]);
 
@@ -107,13 +107,13 @@ const GraficoApex: React.FC<Props> = ({
           zoom: {
             enabled: false,
           },
-          toolbar:{
-            tools:{
-            download: false,
-            zoom: false,
-            zoomin  : false,
-            zoomout : false,
-            pan     : false, 
+          toolbar: {
+            tools: {
+              download: false,
+              zoom: false,
+              zoomin: false,
+              zoomout: false,
+              pan: false,
             },
           },
         },

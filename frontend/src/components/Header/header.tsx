@@ -15,13 +15,13 @@ const Header: React.FC = () => {
             </a>
           </li>
 
-          <li className="sobre-button">
-            <a href="/Sobre-page" className="nav-link"> Sobre
+          <li className="table-button">
+            <a href="/table-page" className="nav-link"> Tabelas
             </a>
           </li>
 
-          <li className="table-button">
-            <a href="/table-page" className="nav-link"> table
+          <li className="sobre-button">
+            <a href="/Sobre-page" className="nav-link"> Sobre
             </a>
           </li>
 

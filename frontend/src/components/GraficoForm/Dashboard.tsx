@@ -71,8 +71,8 @@ const graficosDisponiveis: GraficoConfig[] = [
   {
     id: "WindSpeed_Avg",
     label: "WindSpeed_Avg",
-    campo: "WindSpeed_Avg",
-    tituloY: "WindSpeed (Inst)",
+    campo: "WindSpeed_Avg ",
+    tituloY: "WindSpeed (Média)",
     nomeGrafico: "Gráfico de Velocidade do Vento Média",
     nomeGraficoReserv: "Reservatório - Velocidade do Vento Média",
     nomeGraficoColinas: "Colinas - Velocidade do Vento Média",
@@ -80,7 +80,7 @@ const graficosDisponiveis: GraficoConfig[] = [
   {
     id: "WindDir_Inst",
     label: "WindDir_Inst",
-    campo: "WindDir_Inst",
+    campo: "WindDir_Inst ",
     tituloY: "WindDir Instantâneo",
     nomeGrafico: "Gráfico de Direção do Vento Instantâneo",
     nomeGraficoReserv: "Reservatório - Direção do Vento Instantâneo",

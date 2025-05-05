@@ -1,0 +1,18 @@
+.checkbox-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    gap: 20px; 
+    margin-top: 80px; 
+}
+  
+  .checkbox-container label {
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center; 
+  }
+  
+  .checkbox-container input[type="checkbox"] {
+    margin-right: 5px; 
+  }
