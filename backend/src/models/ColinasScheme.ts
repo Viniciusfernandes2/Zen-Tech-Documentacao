@@ -16,6 +16,6 @@ const ColinasScheme = new mongoose.Schema({
     WindDir_Avg: { type: String, required: true }
 }, { versionKey: false });
 
-const Colinas = mongoose.model('Colinas', ColinasScheme,'colinas');// coloque o nome exato que esta a colection do bd do pc de vcs, aqui esta colina
+const Colinas = mongoose.model('Colinas', ColinasScheme,'colina');// coloque o nome exato que esta a colection do bd do pc de vcs, aqui esta colina
 export default Colinas;
  
