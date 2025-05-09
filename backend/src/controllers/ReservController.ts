@@ -1,11 +1,11 @@
-import Reserv from '../models/ReservScheme';
+import Station from '../models/ReservScheme';
 import { Request, Response } from 'express';
 
-class ResevController {
+class ReservController {
     public async create(req: Request, res: Response): Promise<void> {
         try {
-            const reserv = req.body;
-            const newStation = await Reserv.create(reserv);
+            const station = req.body;
+            const newStation = await Station.create(station);
             res.status(201).json(newStation);
         } catch (err) {
             console.log(err);
@@ -15,7 +15,7 @@ class ResevController {
 
     public async read(_req: Request, res: Response): Promise<void> {
         try {
-            const station = await Reserv.find().limit(10);
+            const station = await Station.find().limit(10);
             res.status(200).json(station);
         } catch (err) {
             console.log(err);
@@ -27,7 +27,7 @@ class ResevController {
         try {
             const { id } = req.params;
             const station = req.body;
-            const updatedStation = await Reserv.findByIdAndUpdate(id, station, { new: true });
+            const updatedStation = await Station.findByIdAndUpdate(id, station, { new: true });
             res.status(200).json(updatedStation);
         } catch (err) {
             console.log(err);
@@ -38,7 +38,7 @@ class ResevController {
     public async delete(req: Request, res: Response): Promise<void> {
         try {
             const { id } = req.params;
-            await Reserv.findByIdAndDelete(id);
+            await Station.findByIdAndDelete(id);
             res.status(200).json({ message: 'Estação deletada com sucesso' });
         }
         catch (err) {
@@ -49,5 +49,5 @@ class ResevController {
     }
 }
 
-const reservController = new ResevController();
-export default reservController;
+const Reservcontroller = new ReservController();
+export default Reservcontroller;
