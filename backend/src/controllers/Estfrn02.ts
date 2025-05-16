@@ -6,7 +6,7 @@ class Estfrn02Controller {
         let connection;
         try {
             connection = await db.getConnection();
-            const [rows] = await connection.execute('SELECT * FROM Sensor where id = 1');
+            const [rows] = await connection.execute('SELECT * FROM Sensor LIMIT 500');
             res.json(rows);
         } catch (error) {
             console.error('Erro no controller:', error);
