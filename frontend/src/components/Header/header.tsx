@@ -1,4 +1,5 @@
 import React from "react";
+import { FaHome, FaChartBar, FaTable, FaSignOutAlt, FaInfoCircle } from "react-icons/fa";
 import "./header.css";
 
 const Header: React.FC = () => {
@@ -8,35 +9,27 @@ const Header: React.FC = () => {
         <ul className="navList">
           <li className="home-button">
             <a href="/home-page" className="nav-link">
-              {" "}
-              Home
+              <FaHome size={16} /> Home
             </a>
           </li>
           <li className="sobre-button">
             <a href="/Sobre-page" className="nav-link">
-              {" "}
-              Sobre
+              <FaInfoCircle size={16} /> Sobre
             </a>
           </li>
-
           <li className="graficos-button">
             <a href="/grafico-page" className="nav-link">
-              {" "}
-              Gráficos
+              <FaChartBar size={16} /> Gráficos
             </a>
           </li>
-
           <li className="table-button">
             <a href="/table-page" className="nav-link">
-              {" "}
-              table
+              <FaTable size={16} /> Tabela
             </a>
           </li>
-
           <li className="sair-button">
             <a href="/" className="nav-link">
-              {" "}
-              Sair
+              <FaSignOutAlt size={16} /> Sair
             </a>
           </li>
         </ul>

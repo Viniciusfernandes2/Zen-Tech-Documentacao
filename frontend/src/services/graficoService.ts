@@ -2,7 +2,7 @@ import api from "../api/axios";
 
 export async function graficoReserv(startDate?: string, endDate?: string, startTime?: string, endTime?: string) {
   try {
-    const response = await api.get("http://localhost:3006/station", {
+    const response = await api.get("http://localhost:3006/geral", {
       params: { startDate, endDate, startTime, endTime }, // Envia os parâmetros de filtro
     });
     return response.data;
@@ -14,7 +14,7 @@ export async function graficoReserv(startDate?: string, endDate?: string, startT
 
 export async function graficoColinas(startDate?: string, endDate?: string, startTime?: string, endTime?: string) {
   try {
-    const response = await api.get("http://localhost:3006/colinas", {
+    const response = await api.get("http://localhost:3006/geral", {
       params: { startDate, endDate, startTime, endTime }, // Envia os parâmetros de filtro
     });
     return response.data;

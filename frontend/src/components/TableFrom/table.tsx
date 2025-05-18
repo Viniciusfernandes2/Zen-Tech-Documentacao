@@ -3,19 +3,19 @@ import { tableColinas } from "../../services/tableService";
 import "./table.css";
 
 interface DadoMeteorologico {
-  Date: string;
-  Time: string;
-  Temp_C: string;
-  Hum_: string;
-  Press_Bar: string;
-  TempCabine_C: string;
-  Charge: string;
-  SR_Wm2: string;
-  WindPeak_ms: string;
-  WindSpeed_Inst: string;
-  WindSpeed_Avg: string;
-  WindDir_Inst: string;
-  WindDir_Avg: string;
+  id: number;
+  temp: string;
+  hum: string;
+  bar: string;
+  cab_temp: string;
+  bat_volts: string;
+  uv_level: string;
+  wind_peak: string;
+  wind_rt: string;
+  wind_avg: string;
+  wind_dir_rt: string;
+  wind_dir_avg: string;
+  reading_time: string;
 }
 
 const ITENS_POR_PAGINA = 20;
@@ -34,7 +34,7 @@ export default function Table() {
       setErro("");
 
       try {
-        const resposta = await tableColinas(); 
+        const resposta = await tableColinas();
         setDados(resposta);
       } catch (err) {
         setErro("Erro ao carregar os dados.");
@@ -71,10 +71,10 @@ export default function Table() {
                 <th>Hora</th>
                 <th>Temp (°C)</th>
                 <th>Umidade (%)</th>
-                <th>Pressão (Bar)</th>
-                <th>Temp Cabine</th>
-                <th>Carga</th>
-                <th>Radiação (W/m²)</th>
+                <th>Pressão (hPa)</th>
+                <th>Temp Cabine (°C)</th>
+                <th>Bateria (V)</th>
+                <th>UV</th>
                 <th>Rajada Vento</th>
                 <th>Vento Inst.</th>
                 <th>Vento Méd.</th>
@@ -83,28 +83,38 @@ export default function Table() {
               </tr>
             </thead>
             <tbody>
-              {dadosPaginados.map((dado, index) => (
-                <tr key={index}>
-                  <td>{dado.Date}</td>
-                  <td>{dado.Time}</td>
-                  <td>{dado.Temp_C}</td>
-                  <td>{dado.Hum_}</td>
-                  <td>{dado.Press_Bar}</td>
-                  <td>{dado.TempCabine_C}</td>
-                  <td>{dado.Charge}</td>
-                  <td>{dado.SR_Wm2}</td>
-                  <td>{dado.WindPeak_ms}</td>
-                  <td>{dado.WindSpeed_Inst}</td>
-                  <td>{dado.WindSpeed_Avg}</td>
-                  <td>{dado.WindDir_Inst}</td>
-                  <td>{dado.WindDir_Avg}</td>
-                </tr>
-              ))}
+              {dadosPaginados.map((dado, index) => {
+                const data = new Date(dado.reading_time);
+                const dataStr = data.toLocaleDateString();
+                const horaStr = data.toLocaleTimeString();
+
+                return (
+                  <tr key={index}>
+                    <td>{dataStr}</td>
+                    <td>{horaStr}</td>
+                    <td>{dado.temp}</td>
+                    <td>{dado.hum}</td>
+                    <td>{dado.bar}</td>
+                    <td>{dado.cab_temp}</td>
+                    <td>{dado.bat_volts}</td>
+                    <td>{dado.uv_level}</td>
+                    <td>{dado.wind_peak}</td>
+                    <td>{dado.wind_rt}</td>
+                    <td>{dado.wind_avg}</td>
+                    <td>{dado.wind_dir_rt}</td>
+                    <td>{dado.wind_dir_avg}</td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
 
           <div className="botoesPaginacao">
-            <button className="botaoPaginacao" onClick={() => setPaginaAtual(p => Math.max(p - 1, 1))} disabled={paginaAtual === 1 || dados.length === 0}>
+            <button
+              className="botaoPaginacao"
+              onClick={() => setPaginaAtual(p => Math.max(p - 1, 1))}
+              disabled={paginaAtual === 1 || dados.length === 0}
+            >
               Anterior
             </button>
             <span className="paginaInfo">
@@ -112,7 +122,9 @@ export default function Table() {
             </span>
             <button
               className="botaoPaginacao"
-              onClick={() => setPaginaAtual(p => Math.min(p + 1, totalPaginas))}
+              onClick={() =>
+                setPaginaAtual(p => Math.min(p + 1, totalPaginas))
+              }
               disabled={paginaAtual === totalPaginas || dados.length === 0}
             >
               Próxima

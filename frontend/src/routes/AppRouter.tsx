@@ -10,7 +10,6 @@ import HomePage from "../pages/HomePage";
 import SobrePage from "../pages/SobrePage";
 import Graficos from "../pages/GraficoPage";
 import TablePage from "../pages/tablePage";
-import Table from "../pages/GraficTeste";
 
 
 export const AppRouter = () => {
@@ -23,7 +22,7 @@ export const AppRouter = () => {
           <Route path="/sobre-page" element={<SobrePage />} />
           <Route path="/grafico-page" element={<Graficos />} />
           <Route path="/table-page" element={<TablePage />} />
-          <Route path="/grafico" element={<Table />} />
+          {/* <Route path="/home-page" element={<GraficoTeste />} /> */}
           </Routes>
     );
   };

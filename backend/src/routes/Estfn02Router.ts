@@ -4,6 +4,8 @@ import sensor from "../controllers/Estfrn02";
 const router = Router();
 
 // Única rota para os sensores
-router.get('/sensor', sensor.read); 
+router.get('/geral', sensor.read); 
+router.get('/maiortemp', sensor.temp); 
+router.get('/humidade', sensor.hum); 
 
 export default router;
