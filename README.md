@@ -53,7 +53,7 @@ Cada entrega foi realizada a partir da data definida com o cliente, com o relat�
 | Sprint | Previsão de Entrega | Status | Histórico |
 | ------ | -------------------- | ------ | --------- |
 |   1    | 📅 15/04/2025        | :white_check_mark:| [:round_pushpin: Ver Relatório](./Sprint01.md) |
-|   2    | 📅 13/05/2025        | 🚧  | [:round_pushpin: Ver Relatório](./Sprint02.md) 
+|   2    | 📅 13/05/2025        | :white_check_mark:| [:round_pushpin: Ver Relatório](./Sprint02.md) 
 |   3    | 📅 11/06/2025        | [-]  | [:round_pushpin: Ver Relatório]( ) |
 
 </div>
