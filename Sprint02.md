@@ -79,6 +79,9 @@ A apresentação da Sprint 1 em vídeo por ser acessada por [aqui!]()
 
 <div>
   <h2>Burndown Sprint 01</h2>
-  <img alt="Burndown---Sprint-1-(2)" src="#">
+  <img alt="Burndown---Sprint-1" src="#">
 </div>
-
+<div>
+  <h2>Burndown Sprint 02</h2>
+  <img alt="burndown-sprint2" src="#">
+</div>
