@@ -1,36 +1,46 @@
 import React from "react";
-import { FaHome, FaChartBar, FaTable, FaSignOutAlt, FaInfoCircle } from "react-icons/fa";
 import "./header.css";
+import Button from "../Buttons/Buttons";
+import { Link, useLocation } from "react-router-dom";
 
 const Header: React.FC = () => {
+  const location = useLocation(); // Obtém a localização atual
+
+  // Função para verificar se o link é o da página ativa
+  const isActive = (path: string) => location.pathname === path;
+
   return (
     <header className="header">
-      <nav>
-        <ul className="navList">
-          <li className="home-button">
-            <a href="/home-page" className="nav-link">
-              <FaHome size={16} /> Home
-            </a>
+      <nav className="navContainer">
+        <ul className="navListLeft">
+          <li className={isActive("/home-page") ? "active" : ""}>
+            <Link to="/home-page">
+              <Button src="/img/home.png" alt="Home" label="Home" />
+            </Link>
           </li>
-          <li className="sobre-button">
-            <a href="/Sobre-page" className="nav-link">
-              <FaInfoCircle size={16} /> Sobre
-            </a>
+          <li className={isActive("/sobre-page") ? "active" : ""}>
+            <Link to="/sobre-page">
+              <Button src="/img/sobre.png" alt="Sobre" label="Sobre" />
+            </Link>
           </li>
-          <li className="graficos-button">
-            <a href="/grafico-page" className="nav-link">
-              <FaChartBar size={16} /> Gráficos
-            </a>
+          <li className={isActive("/grafico-page") ? "active" : ""}>
+            <Link to="/grafico-page">
+              <Button src="/img/grafico.png" alt="Gráfico" label="Gráfico" />
+            </Link>
           </li>
-          <li className="table-button">
-            <a href="/table-page" className="nav-link">
-              <FaTable size={16} /> Tabela
-            </a>
+          <li className={isActive("/table-page") ? "active" : ""}>
+            <Link to="/table-page">
+              <Button src="/img/tabela.png" alt="Tabela" label="Tabela" />
+            </Link>
           </li>
-          <li className="sair-button">
-            <a href="/" className="nav-link">
-              <FaSignOutAlt size={16} /> Sair
-            </a>
+        </ul>
+
+        {/* Grupo da direita (botão "Sair") */}
+        <ul className="navListRight">
+          <li className={isActive("/") ? "active" : ""}>
+            <Link to="/">
+              <Button src="/img/sair.png" alt="Sair" label="Sair" />
+            </Link>
           </li>
         </ul>
       </nav>

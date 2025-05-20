@@ -5,7 +5,7 @@
   height: 5%;
   width: 100%;
   padding: 15px 0;
-  background: rgba(48, 93, 133, 0.4);
+  background: rgba(7, 107, 195, 0.4);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
@@ -13,56 +13,75 @@
   z-index: 1000;
 }
 
-.navList {
+/* Container do nav */
+.navContainer {
   display: flex;
-  justify-content: flex-start; 
+  justify-content: space-between;
   align-items: center;
-  margin: 0 auto;
+  width: 100%;
   padding: 0 20px;
-  list-style: none;
-  gap: 15px;
+  box-sizing: border-box;
+  height: 100%; /* Garante que os itens fiquem dentro do header */
 }
 
-.navList li a {
+/* Listas de navegação */
+.navListLeft,
+.navListRight {
   display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 20px;
   align-items: center;
-  gap: 8px;
-  text-decoration: none;
-  color: white;
-  font-weight: 500;
-  font-size: 16px;
-  transition: all 0.3s ease;
-  padding: 8px 20px;
-  border-radius: 20px;
 }
 
-.home-button a,
-.graficos-button a,
-.sobre-button a,
-.table-button a {
-  background-color: rgba(42, 74, 108, 0.8);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+/* Direita ocupa o restante */
+.navListRight {
+  justify-content: flex-end;
+  flex-grow: 1;
 }
 
-.home-button a:hover,
-.graficos-button a:hover,
-.sobre-button a:hover,
-.table-button a:hover {
-  background-color: rgba(42, 74, 108, 1);
-  transform: scale(1.05);
+/* Ícones */
+.navListLeft img,
+.navListRight img {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
 }
 
-.sair-button {
-  margin-left: auto;
+/* Container interno dos itens */
+.navListLeft div,
+.navListRight div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%; /* Mantém o item dentro do header */
+  overflow: hidden;
 }
 
-.sair-button a {
-  background-color: rgba(180, 180, 180, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+/* Texto oculto inicialmente */
+.navListLeft div div,
+.navListRight div div {
+  font-size: 12px;
+  color: black;
+  font-weight: bold;
+  visibility: hidden;
+  opacity: 0;
+  max-height: 16px;
+  transition: opacity 0.3s ease;
+  line-height: 1;
 }
 
-.sair-button a:hover {
-  background-color: rgba(255, 0, 0, 0.35);
-  transform: scale(1.05);
+/* Mostrar texto ao hover */
+.navListLeft li:hover div div,
+.navListRight li:hover div div {
+  visibility: visible;
+  opacity: 1;
+}
+
+.navListLeft li.active img,
+.navListRight li.active img {
+  filter: brightness(00%) saturate(00%) invert(00%) sepia(00%) saturate(000%) hue-rotate(000deg) contrast(000%);
 }
