@@ -1,3 +1,4 @@
+/* Estilo para o header fixo */
 .header {
   position: fixed;
   top: 0;
@@ -84,4 +85,20 @@
 .navListLeft li.active img,
 .navListRight li.active img {
   filter: brightness(00%) saturate(00%) invert(00%) sepia(00%) saturate(000%) hue-rotate(000deg) contrast(000%);
+}
+
+/* Estilo para o título fixo abaixo do header */
+.tituloFixo {
+  position: fixed;
+  top: 5%; /* Logo abaixo do header */
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  backdrop-filter: blur(15px);
+  z-index: 999;
+  font-size: 24px;
+  color: black;
+  margin: 80;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }

@@ -51,9 +51,38 @@ export default function Table() {
     paginaAtual * ITENS_POR_PAGINA
   );
 
+  const exportarCSV = () => {
+    const cabecalhos = [
+      'Data', 'Hora', 'Temp (°C)', 'Umidade (%)', 'Pressão (hPa)', 'Temp Cabine (°C)', 
+      'Bateria (V)', 'UV', 'Rajada Vento', 'Vento Inst.', 'Vento Méd.', 'Dir. Inst.', 'Dir. Méd.'
+    ];
+
+    const linhas = dados.map(dado => {
+      const data = new Date(dado.reading_time);
+      const dataStr = data.toLocaleDateString();
+      const horaStr = data.toLocaleTimeString();
+      return [
+        dataStr, horaStr, dado.temp, dado.hum, dado.bar, dado.cab_temp, 
+        dado.bat_volts, dado.uv_level, dado.wind_peak, dado.wind_rt, 
+        dado.wind_avg, dado.wind_dir_rt, dado.wind_dir_avg
+      ];
+    });
+
+    const csvConteudo = [cabecalhos, ...linhas].map(row => row.join(',')).join('\n');
+
+    const blob = new Blob([csvConteudo], { type: 'text/csv' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'dados_meteorologicos.csv';
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
   return (
     <div>
-      <h2>Dados Meteorológicos - Estação Colinas</h2>
+      {/* Título fixo logo abaixo do header */}
+      <h2 className="tituloFixo">Dados Meteorológicos</h2>
 
       {carregando && <p>Carregando...</p>}
       {erro && <p style={{ color: "red" }}>{erro}</p>}
@@ -110,25 +139,34 @@ export default function Table() {
           </table>
 
           <div className="botoesPaginacao">
-            <button
-              className="botaoPaginacao"
-              onClick={() => setPaginaAtual(p => Math.max(p - 1, 1))}
-              disabled={paginaAtual === 1 || dados.length === 0}
-            >
-              Anterior
-            </button>
-            <span className="paginaInfo">
-              Página {paginaAtual} de {totalPaginas}
-            </span>
-            <button
-              className="botaoPaginacao"
-              onClick={() =>
-                setPaginaAtual(p => Math.min(p + 1, totalPaginas))
-              }
-              disabled={paginaAtual === totalPaginas || dados.length === 0}
-            >
-              Próxima
-            </button>
+            <div className="paginasEExportacao">
+              <button
+                className="botaoPaginacao"
+                onClick={() => setPaginaAtual(p => Math.max(p - 1, 1))}
+                disabled={paginaAtual === 1 || dados.length === 0}
+              >
+                Anterior
+              </button>
+              <span className="paginaInfo">
+                Página {paginaAtual} de {totalPaginas}
+              </span>
+              <button
+                className="botaoPaginacao"
+                onClick={() =>
+                  setPaginaAtual(p => Math.min(p + 1, totalPaginas))
+                }
+                disabled={paginaAtual === totalPaginas || dados.length === 0}
+              >
+                Próxima
+              </button>
+            </div>
+
+            {/* Botão para exportar os dados em CSV */}
+            <div className="exportarCsv">
+              <button className="botaoExportar" onClick={exportarCSV}>
+                Baixar CSV
+              </button>
+            </div>
           </div>
         </>
       )}
