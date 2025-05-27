@@ -1,70 +1,104 @@
 .dashboard-container {
-    display: flex;
-    min-height: 100vh;
-    font-family: Arial, sans-serif;
-    padding-top: 7%;
-  }
-  
-  .sidebar {
-    position: fixed;
-    top: 10%;
-    left: 0;
-    width: 15%;
-    height: calc(100vh - 30px); 
-    background-color: #f9f9f9;
-    border-right: 1px solid #ccc;
-    padding: 1.5rem 1rem; 
-    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.05);
-    overflow-y: auto; /* Adiciona rolagem vertical */
+  display: flex;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  padding-top: 7%;
+  color: #0e0d0d; /* <- Aqui você define a cor do texto */
 }
 
-  .sidebar h3 {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    color: #333;
-  }
-  
-  .sidebar label {
-    display: block;
-    background-color: #f9f9f9;
-    border-bottom: solid 1px grey;
-    padding: 7%;
-    font-size: 0.95rem;
-    cursor: pointer;
-    color: #444;
-    transition: all 0.3s ease; /* Adiciona uma transição suave */
+
+.sidebar {
+  position: absolute;
+  left: 0;
+  top: 40px;
+  width: 220px;
+  transform: translateX(-100%); /* começa fora da tela à esquerda */
+  opacity: 0; /* invisível */
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.sidebar.open {
+  transform: translateX(0); /* desliza para dentro */
+  opacity: 1; /* fica visível */
+
+}
+
+.sidebar {
+  position: fixed;
+  top: 10%;
+  left: 0;
+  width: 15%;
+  height: calc(100vh - 30px); 
+  background-color: #a4c8f2;
+  border-right: 1px solid #ccc;
+  padding: 1.5rem 1rem; 
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.5);
+  overflow-y: auto; /* Adiciona rolagem vertical */
+}
+
+.sidebar h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.sidebar label {
+  display: block;
+  background-color: #6da7eb;
+  border-bottom: solid 1px #f9f9f9;
+  padding: 7%;
+  font-size: 0.95rem;
+  cursor: pointer;
+  color: #f9f7f7;
+  transition: all 0.3s ease; /* Adiciona uma transição suave */
 }
 
 .sidebar label:hover {
-    background-color: #e6e6e6; /* Cor de fundo ao passar o cursor */
-    transform: scale(1.02); /* Leve aumento no tamanho */
+  background-color: #e6e6e6; /* Cor de fundo ao passar o cursor */
+  transform: scale(1.02); /* Leve aumento no tamanho */
 }
-  .content {
-    margin-left: 17%; /* mesma largura da sidebar */
-    overflow-y: auto;
-    background-color: #fff;
-    width: calc(100% - 250px);
+
+.menu-toggle {
+  padding: 10px 20px;
+  background-color: #3498db; /* azul */
+  color: white;
+  border: none;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+.menu-toggle:hover {
+  background-color: #2980b9; /* tom mais escuro ao passar o mouse */
+}
+
+.content {
+  margin-left: 17%; /* mesma largura da sidebar */
+  overflow-y: auto;
+  background-color: #fff;
+  width: calc(100% - 250px);
+}
+
+.grafico-wrapper {
+  margin-left: 3%;
+  margin-bottom: 2rem;
+  border: 1px solid #e1e1e1;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: #fdfdfd;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 768px) {
+  .dashboard-container {
+    flex-direction: column;
   }
-  
-  .grafico-wrapper {
-    margin-left: 3%;
-    margin-bottom: 2rem;
-    border: 1px solid #e1e1e1;
-    padding: 1rem;
-    border-radius: 8px;
-    background-color: #fdfdfd;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #cccccc;
   }
-  
-  @media (max-width: 768px) {
-    .dashboard-container {
-      flex-direction: column;
-    }
-  
-    .sidebar {
-      width: 100%;
-      border-right: none;
-      border-bottom: 1px solid #ccc;
-    }
-  }
-  
+}

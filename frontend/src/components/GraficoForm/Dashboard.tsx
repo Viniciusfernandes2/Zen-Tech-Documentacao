@@ -90,6 +90,8 @@ const graficosDisponiveis: GraficoConfig[] = [
 const Dashboard: React.FC = () => {
   const [graficosAtivos, setGraficosAtivos] = useState<string[]>([]);
 
+  const [isHovered, setIsHovered] = useState(false);
+
   const handleToggleGrafico = (id: string) => {
     setGraficosAtivos((prev) =>
       prev.includes(id) ? prev.filter((g) => g !== id) : [...prev, id]
@@ -98,18 +100,26 @@ const Dashboard: React.FC = () => {
 
   return (
     <div className="dashboard-container">
-      <aside className="sidebar">
-        {graficosDisponiveis.map((grafico) => (
-          <label key={grafico.id}>
-            <input
-              type="checkbox"
-              checked={graficosAtivos.includes(grafico.id)}
-              onChange={() => handleToggleGrafico(grafico.id)}
-            />
-            {grafico.label}
-          </label>
-        ))}
-      </aside>
+   <div
+  className="sidebar-container"
+  onMouseEnter={() => setIsHovered(true)}
+  onMouseLeave={() => setIsHovered(false)}
+>
+  <button className="menu-toggle">☰ Menu</button>
+  <aside className={`sidebar ${isHovered ? 'open' : ''}`}>
+    {graficosDisponiveis.map((grafico) => (
+      <label key={grafico.id}>
+        <input
+          type="checkbox"
+          checked={graficosAtivos.includes(grafico.id)}
+          onChange={() => handleToggleGrafico(grafico.id)}
+        />
+        {grafico.label}
+      </label>
+    ))}
+  </aside>
+</div>
+
 
       <main className="content">
         {graficosDisponiveis
