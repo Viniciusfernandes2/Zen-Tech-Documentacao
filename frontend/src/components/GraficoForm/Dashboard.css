@@ -1,70 +1,71 @@
-.dashboard-container {
-    display: flex;
-    min-height: 100vh;
-    font-family: Arial, sans-serif;
-    padding-top: 7%;
-  }
-  
-  .sidebar {
-    position: fixed;
-    top: 10%;
-    left: 0;
-    width: 15%;
-    height: calc(100vh - 30px); 
-    background-color: #f9f9f9;
-    border-right: 1px solid #ccc;
-    padding: 1.5rem 1rem; 
-    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.05);
-    overflow-y: auto; /* Adiciona rolagem vertical */
+.sidebar {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  height: calc(100vh - 70px); 
+  width: 0;
+  overflow-x: hidden;
+  background-color: #1a237e; 
+  color: #ffffff;
+  transition: width 0.3s ease;
+  padding-top: 20px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  box-shadow: 2px 0 12px rgba(26, 35, 126, 0.7);
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
 }
 
-  .sidebar h3 {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    color: #333;
-  }
-  
-  .sidebar label {
-    display: block;
-    background-color: #f9f9f9;
-    border-bottom: solid 1px grey;
-    padding: 7%;
-    font-size: 0.95rem;
-    cursor: pointer;
-    color: #444;
-    transition: all 0.3s ease; /* Adiciona uma transição suave */
+.sidebar.open {
+  width: 270px;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.sidebar label {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  gap: 12px;
+  cursor: pointer;
+  padding: 10px 12px;
+  border-radius: 8px;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 .sidebar label:hover {
-    background-color: #e6e6e6; /* Cor de fundo ao passar o cursor */
-    transform: scale(1.02); /* Leve aumento no tamanho */
+  background-color: #3949ab; 
+  color: #e8eaf6; 
+  box-shadow: 0 0 10px #5c6bc0aa;
 }
-  .content {
-    margin-left: 17%; /* mesma largura da sidebar */
-    overflow-y: auto;
-    background-color: #fff;
-    width: calc(100% - 250px);
-  }
-  
-  .grafico-wrapper {
-    margin-left: 3%;
-    margin-bottom: 2rem;
-    border: 1px solid #e1e1e1;
-    padding: 1rem;
-    border-radius: 8px;
-    background-color: #fdfdfd;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
-  }
-  
-  @media (max-width: 768px) {
-    .dashboard-container {
-      flex-direction: column;
-    }
-  
-    .sidebar {
-      width: 100%;
-      border-right: none;
-      border-bottom: 1px solid #ccc;
-    }
-  }
-  
+
+.sidebar label input[type="checkbox"] {
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+  accent-color: #3949ab; 
+}
+
+.sidebar-toggle {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  background-color: #303f9f; 
+  color: white;
+  border-radius: 0 8px 8px 0;
+  padding: 14px 16px;
+  cursor: pointer;
+  z-index: 1001;
+  font-size: 22px;
+  border: none;
+  transition: background-color 0.3s;
+  box-shadow: 0 0 8px #303f9faa;
+}
+
+.sidebar-toggle:hover {
+  background-color: #3f51b5; 
+  box-shadow: 0 0 14px #3f51b5cc;
+}

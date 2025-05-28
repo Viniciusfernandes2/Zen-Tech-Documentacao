@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import GraficoApex from "../GraficoForm/GraficoApex";
-import { graficoReserv } from "../../services/graficoService"; // apenas hidro29_estfrn02
+import { graficoReserv } from "../../services/graficoService"; 
 import "./Dashboard.css";
+import "./Grafico.css"
 
 type GraficoConfig = {
   id: string;
@@ -90,15 +91,25 @@ const graficosDisponiveis: GraficoConfig[] = [
 const Dashboard: React.FC = () => {
   const [graficosAtivos, setGraficosAtivos] = useState<string[]>([]);
 
+  const [isHovered, setIsHovered] = useState(false);
+
   const handleToggleGrafico = (id: string) => {
     setGraficosAtivos((prev) =>
       prev.includes(id) ? prev.filter((g) => g !== id) : [...prev, id]
     );
   };
 
-  return (
-    <div className="dashboard-container">
-      <aside className="sidebar">
+    return (
+  <div className="dashboard-container">
+    <div className="sidebar-container">
+      <button
+        className="sidebar-toggle"
+        onClick={() => setIsHovered((prev) => !prev)}
+      >
+        {isHovered ? '❮' : '❯'}
+      </button>
+
+      <aside className={`sidebar ${isHovered ? 'open' : ''}`}>
         {graficosDisponiveis.map((grafico) => (
           <label key={grafico.id}>
             <input
@@ -110,24 +121,24 @@ const Dashboard: React.FC = () => {
           </label>
         ))}
       </aside>
-
-      <main className="content">
-        {graficosDisponiveis
-          .filter((grafico) => graficosAtivos.includes(grafico.id))
-          .map((grafico) => (
-            <div key={grafico.id} className="grafico-wrapper">
-              <GraficoApex
-                campo={grafico.campo}
-                tituloY={grafico.tituloY}
-                nomeGrafico={grafico.nomeGrafico}
-                nomeEstacao={grafico.nomeEstacao}
-                fetchData={graficoReserv}
-              />
-            </div>
-          ))}
-      </main>
     </div>
-  );
-};
 
+    <main className="content">
+      {graficosDisponiveis
+        .filter((grafico) => graficosAtivos.includes(grafico.id))
+        .map((grafico) => (
+          <div key={grafico.id} className="grafico-wrapper">
+            <GraficoApex
+              campo={grafico.campo}
+              tituloY={grafico.tituloY}
+              nomeGrafico={grafico.nomeGrafico}
+              nomeEstacao={grafico.nomeEstacao}
+              fetchData={graficoReserv}
+            />
+          </div>
+        ))}
+    </main>
+  </div>
+);
+};
 export default Dashboard;
