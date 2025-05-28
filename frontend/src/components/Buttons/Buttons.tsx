@@ -1,17 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, ReactElement } from 'react';
+import './Buttons.css';
 
-const Button = ({ src, alt, label }: { src: string; alt: string; label: string }) => {
+interface ButtonProps {
+  Icon: ReactElement;
+  label: string;
+  isActive?: boolean; // adicionamos isso
+}
+
+const Button = ({ Icon, label, isActive = false }: ButtonProps) => {
   const [hovered, setHovered] = useState(false);
 
   return (
     <div
+      className={`buttonContainer ${isActive ? "active" : ""}`}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      <img src={src} alt={alt} />
-      {hovered && <div>{label}</div>}
+      <div className="imageWrapper">
+        {Icon}
+      </div>
     </div>
   );
 };
 
 export default Button;
+

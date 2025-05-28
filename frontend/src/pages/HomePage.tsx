@@ -3,7 +3,7 @@ import Header from "../components/Header/header";
 import "../styles/HomePage.css";
 import TableHome from "../components/TempAtual/TempAtual";
 import { graficoReserv } from "../services/graficoService";
-
+import IconeSobre from "../components/SobreForm/SobreIcon";
 import { FaWind, FaWater } from "react-icons/fa";
 import { MdWarning, MdCheckCircle, MdReportProblem } from "react-icons/md";
 
@@ -82,6 +82,7 @@ const HomePage: React.FC = () => {
         </div>
 
         <TableHome />
+          <IconeSobre />
       </main>
     </div>
   );

@@ -1,4 +1,4 @@
-/* Estilo para o header fixo */
+/* HEADER E LOGO */
 .header {
   position: fixed;
   top: 0;
@@ -6,15 +6,12 @@
   height: 5%;
   width: 100%;
   padding: 15px 0;
-  background: rgba(7, 107, 195, 0.4);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
+  background: #7EB7F5;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  z-index: 100;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.637);
 }
 
-/* Container do nav */
 .navContainer {
   display: flex;
   justify-content: space-between;
@@ -22,10 +19,9 @@
   width: 100%;
   padding: 0 20px;
   box-sizing: border-box;
-  height: 100%; /* Garante que os itens fiquem dentro do header */
+  height: 100%;
 }
 
-/* Listas de navegação */
 .navListLeft,
 .navListRight {
   display: flex;
@@ -36,69 +32,28 @@
   align-items: center;
 }
 
-/* Direita ocupa o restante */
 .navListRight {
   justify-content: flex-end;
   flex-grow: 1;
 }
 
-/* Ícones */
-.navListLeft img,
-.navListRight img {
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-  transition: opacity 0.2s ease;
-}
-
-/* Container interno dos itens */
-.navListLeft div,
-.navListRight div {
+.logoContainer {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 100%; /* Mantém o item dentro do header */
-  overflow: hidden;
+  height: 100%;
+  margin-right: 20px;
 }
 
-/* Texto oculto inicialmente */
-.navListLeft div div,
-.navListRight div div {
-  font-size: 12px;
-  color: black;
+.logo {
+  height: 80px;
+  width: 80px;
+}
+
+.activeLabel {
+  color: white;
+  font-size: 18px;
   font-weight: bold;
-  visibility: hidden;
-  opacity: 0;
-  max-height: 16px;
-  transition: opacity 0.3s ease;
-  line-height: 1;
-}
-
-/* Mostrar texto ao hover */
-.navListLeft li:hover div div,
-.navListRight li:hover div div {
-  visibility: visible;
-  opacity: 1;
-}
-
-.navListLeft li.active img,
-.navListRight li.active img {
-  filter: brightness(00%) saturate(00%) invert(00%) sepia(00%) saturate(000%) hue-rotate(000deg) contrast(000%);
-}
-
-/* Estilo para o título fixo abaixo do header */
-.tituloFixo {
-  position: fixed;
-  top: 5%; /* Logo abaixo do header */
-  left: 0;
-  width: 100%;
-  text-align: center;
-  padding: 10px 0;
-  backdrop-filter: blur(15px);
-  z-index: 999;
-  font-size: 24px;
-  color: black;
-  margin: 80;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  margin-left: 10px;
+  min-width: 80px;
+  text-align: left;
 }

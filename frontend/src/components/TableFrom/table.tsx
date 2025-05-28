@@ -18,7 +18,7 @@ interface DadoMeteorologico {
   reading_time: string;
 }
 
-const ITENS_POR_PAGINA = 20;
+const ITENS_POR_PAGINA = 15;
 
 export default function Table() {
   const [dados, setDados] = useState<DadoMeteorologico[]>([]);
@@ -80,10 +80,8 @@ export default function Table() {
   };
 
   return (
-    <div>
-      {/* Título fixo logo abaixo do header */}
-      <h2 className="tituloFixo">Dados Meteorológicos</h2>
-
+    <div className="container">
+      <h1>Dados Meteorológicos : Lago de Furnas - MG</h1>
       {carregando && <p>Carregando...</p>}
       {erro && <p style={{ color: "red" }}>{erro}</p>}
 

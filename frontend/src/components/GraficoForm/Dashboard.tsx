@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import GraficoApex from "../GraficoForm/GraficoApex";
-import { graficoReserv } from "../../services/graficoService"; // apenas hidro29_estfrn02
+import { graficoReserv } from "../../services/graficoService"; 
 import "./Dashboard.css";
+import "./Grafico.css"
 
 type GraficoConfig = {
   id: string;
@@ -98,46 +99,46 @@ const Dashboard: React.FC = () => {
     );
   };
 
-  return (
-    <div className="dashboard-container">
-   <div
-  className="sidebar-container"
-  onMouseEnter={() => setIsHovered(true)}
-  onMouseLeave={() => setIsHovered(false)}
->
-  <button className="menu-toggle">☰ Menu</button>
-  <aside className={`sidebar ${isHovered ? 'open' : ''}`}>
-    {graficosDisponiveis.map((grafico) => (
-      <label key={grafico.id}>
-        <input
-          type="checkbox"
-          checked={graficosAtivos.includes(grafico.id)}
-          onChange={() => handleToggleGrafico(grafico.id)}
-        />
-        {grafico.label}
-      </label>
-    ))}
-  </aside>
-</div>
+    return (
+  <div className="dashboard-container">
+    <div className="sidebar-container">
+      <button
+        className="sidebar-toggle"
+        onClick={() => setIsHovered((prev) => !prev)}
+      >
+        {isHovered ? '❮' : '❯'}
+      </button>
 
-
-      <main className="content">
-        {graficosDisponiveis
-          .filter((grafico) => graficosAtivos.includes(grafico.id))
-          .map((grafico) => (
-            <div key={grafico.id} className="grafico-wrapper">
-              <GraficoApex
-                campo={grafico.campo}
-                tituloY={grafico.tituloY}
-                nomeGrafico={grafico.nomeGrafico}
-                nomeEstacao={grafico.nomeEstacao}
-                fetchData={graficoReserv}
-              />
-            </div>
-          ))}
-      </main>
+      <aside className={`sidebar ${isHovered ? 'open' : ''}`}>
+        {graficosDisponiveis.map((grafico) => (
+          <label key={grafico.id}>
+            <input
+              type="checkbox"
+              checked={graficosAtivos.includes(grafico.id)}
+              onChange={() => handleToggleGrafico(grafico.id)}
+            />
+            {grafico.label}
+          </label>
+        ))}
+      </aside>
     </div>
-  );
-};
 
+    <main className="content">
+      {graficosDisponiveis
+        .filter((grafico) => graficosAtivos.includes(grafico.id))
+        .map((grafico) => (
+          <div key={grafico.id} className="grafico-wrapper">
+            <GraficoApex
+              campo={grafico.campo}
+              tituloY={grafico.tituloY}
+              nomeGrafico={grafico.nomeGrafico}
+              nomeEstacao={grafico.nomeEstacao}
+              fetchData={graficoReserv}
+            />
+          </div>
+        ))}
+    </main>
+  </div>
+);
+};
 export default Dashboard;

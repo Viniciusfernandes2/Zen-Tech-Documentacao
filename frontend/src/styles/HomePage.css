@@ -1,4 +1,21 @@
-/* Estilos gerais */
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+body {
+  background:
+    radial-gradient(circle at center, rgba(255, 255, 255, 0.12), transparent 70%),
+    linear-gradient(to bottom, 
+      #182B60 0%, 
+      #2E49A4 40%, 
+      #4A90E2 75%, 
+      #7EB7F5 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
 .home-container {
   display: flex;
   justify-content: center;

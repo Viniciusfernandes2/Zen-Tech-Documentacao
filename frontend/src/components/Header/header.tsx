@@ -1,45 +1,76 @@
-import React from "react";
+import React, { useState } from "react";
 import "./header.css";
-import Button from "../Buttons/Buttons";
 import { Link, useLocation } from "react-router-dom";
+import HomeButton from "../Buttons/HomeButton";
+import GraficoButton from "../Buttons/GraficoButton";
+import TabelaButton from "../Buttons/TabelaButton";
+import SairButton from "../Buttons/SairButton";
 
 const Header: React.FC = () => {
-  const location = useLocation(); // Obtém a localização atual
+  const location = useLocation();
+  const [hoverLabel, setHoverLabel] = useState<string | null>(null);
 
-  // Função para verificar se o link é o da página ativa
   const isActive = (path: string) => location.pathname === path;
+
+  const getActiveLabel = () => {
+    switch (location.pathname) {
+      case "/home-page":
+        return "Home";
+      case "/grafico-page":
+        return "Gráfico";
+      case "/table-page":
+        return "Tabela";
+      default:
+        return "";
+    }
+  };
+
+  const labelToShow = hoverLabel || getActiveLabel();
 
   return (
     <header className="header">
       <nav className="navContainer">
+        <div className="logoContainer">
+          <img src="/img/headerlogo.png" alt="Logo" className="logo" />
+        </div>
+
+        {/* TEXTO AO LADO DOS BOTÕES */}
+        <div className="activeLabel">{labelToShow}</div>
+
         <ul className="navListLeft">
-          <li className={isActive("/home-page") ? "active" : ""}>
+          <li
+            className={isActive("/home-page") ? "active" : ""}
+            onMouseEnter={() => setHoverLabel("Home")}
+            onMouseLeave={() => setHoverLabel(null)}
+          >
             <Link to="/home-page">
-              <Button src="/img/home.png" alt="Home" label="Home" />
+              <HomeButton />
             </Link>
           </li>
-          <li className={isActive("/sobre-page") ? "active" : ""}>
-            <Link to="/sobre-page">
-              <Button src="/img/sobre.png" alt="Sobre" label="Sobre" />
-            </Link>
-          </li>
-          <li className={isActive("/grafico-page") ? "active" : ""}>
+          <li
+            className={isActive("/grafico-page") ? "active" : ""}
+            onMouseEnter={() => setHoverLabel("Gráfico")}
+            onMouseLeave={() => setHoverLabel(null)}
+          >
             <Link to="/grafico-page">
-              <Button src="/img/grafico.png" alt="Gráfico" label="Gráfico" />
+              <GraficoButton />
             </Link>
           </li>
-          <li className={isActive("/table-page") ? "active" : ""}>
+          <li
+            className={isActive("/table-page") ? "active" : ""}
+            onMouseEnter={() => setHoverLabel("Tabela")}
+            onMouseLeave={() => setHoverLabel(null)}
+          >
             <Link to="/table-page">
-              <Button src="/img/tabela.png" alt="Tabela" label="Tabela" />
+              <TabelaButton />
             </Link>
           </li>
         </ul>
 
-        {/* Grupo da direita (botão "Sair") */}
         <ul className="navListRight">
           <li className={isActive("/") ? "active" : ""}>
             <Link to="/">
-              <Button src="/img/sair.png" alt="Sair" label="Sair" />
+              <SairButton />
             </Link>
           </li>
         </ul>
