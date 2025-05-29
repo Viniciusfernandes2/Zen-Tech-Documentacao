@@ -2,6 +2,7 @@ import express from 'express';
 import { PORT } from './config';
 import cors from 'cors';
 import Routes from './routes/index';
+import { connect } from './database/mongoose';
 
 const app = express();
 
@@ -12,8 +13,8 @@ app.use(cors({
 }));
 
 app.use(express.json());
-
 // Todas as rotas estão centralizadas aqui
+connect()
 app.use('/', Routes);
 
 app.listen(PORT, () => {

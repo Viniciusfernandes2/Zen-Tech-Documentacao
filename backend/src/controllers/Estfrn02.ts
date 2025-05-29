@@ -26,7 +26,7 @@ class Estfrn02Controller {
         let connection;
         try {
             connection = await db.getConnection();
-            const [rows] = await connection.execute('SELECT * FROM Sensor ORDER BY reading_time + 0 DESC LIMIT 1');
+            const [rows] = await connection.execute('SELECT * FROM Sensor ORDER BY reading_time + 0 DESC LIMIT 10');
             res.json(rows);
         } catch (error) {
             console.error('Erro no controller:', error);
@@ -35,11 +35,11 @@ class Estfrn02Controller {
             if (connection) connection.release(); // Devolve a conexão ao pool
         }
     }
-    public async hum(req: Request, res: Response): Promise<void> {
+    public async Alert(req: Request, res: Response): Promise<void> {
         let connection;
         try {
             connection = await db.getConnection();
-            const [rows] = await connection.execute('SELECT hum FROM Sensor LIMIT 5');
+            const [rows] = await connection.execute('SELECT * FROM Sensor ORDER BY reading_time + 0 DESC LIMIT 10');
             res.json(rows);
         } catch (error) {
             console.error('Erro no controller:', error);
