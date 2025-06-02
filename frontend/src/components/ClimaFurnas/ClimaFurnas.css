@@ -1,0 +1,109 @@
+.weather-card { 
+  background: linear-gradient(135deg, #4a90e2, #50e3c2);
+  color: white;
+  padding: 3rem;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 550px; /* corrigido para max-width */
+  height: 350px;
+  margin: 2rem auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  font-family: 'Segoe UI', sans-serif;
+  box-sizing: border-box;
+}
+
+.weather-card h1 {
+  text-align: left;
+  margin-bottom: 1rem;
+  font-size: 4rem;
+  color: white;
+}
+
+.title-row h1 {
+  display: flex;
+  align-items: center;  /* centraliza verticalmente o ícone e texto */
+  gap: 10.5rem;
+  font-size: 2.4rem;
+  color: white;
+  margin-bottom: 1rem;
+}
+.title-row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.title-row h1,
+.title-row h2 {
+  margin: 0;
+  padding: 0;
+}
+
+.icon-weather {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+
+.weather-card h2 {
+  text-align: left;
+  margin-bottom: 0rem;
+  font-size: 1.4rem;
+  color: white;
+}
+
+.weather-card p {
+  margin-bottom: 1rem;
+  font-size: 1.15rem;
+  color: white;
+}
+
+.weather-info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top:12px ;
+  flex-wrap: wrap; /* responsivo */
+  gap: 1rem;
+}
+
+.weather-info-row p {
+  flex: 1 1 30%; /* ocupa até 30% do espaço */
+  margin: 0;
+  text-align: center;
+}
+
+
+.temp-container {
+  width: 100%;
+  display: flex;
+  justify-content:left;
+}
+
+.temp {
+  display: flex;
+  align-items: flex-start; /* alinha ícone com topo da temperatura */
+  color: white;
+}
+
+.temp-icon {
+  font-size: 1.75rem; /* deixa o ícone bem grande */
+}
+
+.temp-value {
+  font-size: 4.5rem; /* valor da temperatura grande */
+  font-weight: bold;
+  text-align: left;
+}
+
+
+.info {
+  font-size: 1rem;
+}
+
+.timestamp {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}

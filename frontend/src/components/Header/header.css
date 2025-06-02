@@ -23,6 +23,11 @@
   gap: 15px;
 }
 
+.saudacao-header {
+  color: white;
+  font-size: 128%;
+}
+
 .navList li a {
   display: flex;
   align-items: center;
