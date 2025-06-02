@@ -1,0 +1,42 @@
+.clima-card {
+  background-color: white;
+  border-radius: 1rem; /* 16px */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  padding: 1.5rem; /* 24px */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem; /* 8px */
+  width: 100%;
+  max-width: 24rem; /* 384px */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.api-icon {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+}
+
+
+
+.clima-card h3 {
+  font-size: 1.25rem; /* 20px */
+  font-weight: 600;
+  color: #4a5568; /* cinza escuro */
+}
+
+.clima-temp {
+  font-size: 2.5rem; /* 40px */
+  font-weight: 700;
+  color: #2d3748; /* quase preto */
+}
+
+.clima-condicao {
+  font-size: 0.875rem; /* 14px */
+  color: #718096; /* cinza médio */
+  text-transform: capitalize;
+  margin: 0;
+}
