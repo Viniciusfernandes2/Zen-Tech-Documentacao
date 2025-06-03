@@ -41,9 +41,9 @@ const WeatherCardFurnas: React.FC = () => {
 <div className="title-row">
   <h1>
     Clima Atual
-    <span className="icon-weather">
+    <div className="icon-weather">
   <IconsApi lat={lat} lon={lon} />
-    </span>
+    </div>
   </h1>
   <h2>Represa de Furnas</h2>
 </div>

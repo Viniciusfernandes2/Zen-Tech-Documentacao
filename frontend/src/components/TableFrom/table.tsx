@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { tableColinas } from "../../services/tableService";
+import DateFilter from "../DateFilter/DateFilter";  // Importando o componente DateFilter
 import "./table.css";
 
 interface DadoMeteorologico {
@@ -25,6 +26,7 @@ export default function Table() {
   const [paginaAtual, setPaginaAtual] = useState(1);
   const [carregando, setCarregando] = useState(true);
   const [erro, setErro] = useState("");
+  const [dataEscolhida, setDataEscolhida] = useState<string>("");
 
   const totalPaginas = Math.max(1, Math.ceil(dados.length / ITENS_POR_PAGINA));
 
@@ -46,7 +48,16 @@ export default function Table() {
     buscarDados();
   }, []);
 
-  const dadosPaginados = dados.slice(
+  // Filtra os dados conforme a data escolhida
+  const dadosFiltrados = dataEscolhida
+    ? dados.filter((dado) => {
+        const data = new Date(dado.reading_time);
+        const dataStr = data.toLocaleDateString("pt-BR").split("/").reverse().join("-"); // Formato: YYYY-MM-DD
+        return dataStr === dataEscolhida;
+      })
+    : dados;
+
+  const dadosPaginados = dadosFiltrados.slice(
     (paginaAtual - 1) * ITENS_POR_PAGINA,
     paginaAtual * ITENS_POR_PAGINA
   );
@@ -57,7 +68,7 @@ export default function Table() {
       'Bateria (V)', 'UV', 'Rajada Vento', 'Vento Inst.', 'Vento Méd.', 'Dir. Inst.', 'Dir. Méd.'
     ];
 
-    const linhas = dados.map(dado => {
+    const linhas = dadosFiltrados.map(dado => {
       const data = new Date(dado.reading_time);
       const dataStr = data.toLocaleDateString();
       const horaStr = data.toLocaleTimeString();
@@ -82,14 +93,20 @@ export default function Table() {
   return (
     <div className="container">
       <h1>Dados Meteorológicos : Lago de Furnas - MG</h1>
+
+      <DateFilter
+        dataEscolhida={dataEscolhida}
+        onDataEscolhidaChange={setDataEscolhida}
+      />
+
       {carregando && <p>Carregando...</p>}
       {erro && <p style={{ color: "red" }}>{erro}</p>}
 
-      {!carregando && !erro && dados.length === 0 && (
-        <p>Nenhum dado encontrado.</p>
+      {!carregando && !erro && dadosFiltrados.length === 0 && (
+        <p>Nenhum dado encontrado para a data selecionada.</p>
       )}
 
-      {!carregando && !erro && dados.length > 0 && (
+      {!carregando && !erro && dadosFiltrados.length > 0 && (
         <>
           <table className="tabela">
             <thead>
@@ -141,7 +158,7 @@ export default function Table() {
               <button
                 className="botaoPaginacao"
                 onClick={() => setPaginaAtual(p => Math.max(p - 1, 1))}
-                disabled={paginaAtual === 1 || dados.length === 0}
+                disabled={paginaAtual === 1 || dadosFiltrados.length === 0}
               >
                 Anterior
               </button>
@@ -153,13 +170,12 @@ export default function Table() {
                 onClick={() =>
                   setPaginaAtual(p => Math.min(p + 1, totalPaginas))
                 }
-                disabled={paginaAtual === totalPaginas || dados.length === 0}
+                disabled={paginaAtual === totalPaginas || dadosFiltrados.length === 0}
               >
                 Próxima
               </button>
             </div>
 
-            {/* Botão para exportar os dados em CSV */}
             <div className="exportarCsv">
               <button className="botaoExportar" onClick={exportarCSV}>
                 Baixar CSV

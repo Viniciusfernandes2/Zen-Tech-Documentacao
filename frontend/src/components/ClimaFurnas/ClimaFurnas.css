@@ -1,12 +1,10 @@
 .weather-card { 
   background: linear-gradient(135deg, #4a90e2, #50e3c2);
   color: white;
-  padding: 3rem;
+  padding: 2rem;
   border-radius: 16px;
-  width: 100%;
-  max-width: 550px; /* corrigido para max-width */
-  height: 350px;
-  margin: 2rem auto;
+  width: 80%;
+  margin: 1rem auto;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   font-family: 'Segoe UI', sans-serif;
   box-sizing: border-box;

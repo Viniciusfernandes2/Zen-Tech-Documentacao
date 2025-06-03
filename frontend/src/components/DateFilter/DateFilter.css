@@ -1,0 +1,38 @@
+.filtroData {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  margin: 20px 0;
+  align-items: center;
+}
+
+.filtroData label {
+  font-weight: 600;
+  font-size: 16px;
+  color: #333;
+}
+
+.filtroData input {
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+.filtroData input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+}
+
+.filtroData input[type="date"] {
+  width: 160px;
+}
+
+@media (max-width: 768px) {
+  .filtroData {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

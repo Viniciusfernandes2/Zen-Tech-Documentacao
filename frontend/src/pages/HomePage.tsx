@@ -9,8 +9,6 @@ const HomePage: React.FC = () => {
     <div className="home-container">
       <Header />
       <main className="home-main">
-        <h1>Bem-vindo à Home Page!</h1>
-        <p>Esta é a página inicial do site.</p>
          <WeatherCardFurnas />
          <ClimaSemana/>
       </main>
