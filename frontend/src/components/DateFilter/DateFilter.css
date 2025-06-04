@@ -9,14 +9,17 @@
 .filtroData label {
   font-weight: 600;
   font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
   color: #333;
 }
+
 
 .filtroData input {
   padding: 8px;
   font-size: 14px;
   border-radius: 4px;
   border: 1px solid #ccc;
+  font-family: Arial, Helvetica, sans-serif;
   outline: none;
   transition: border 0.3s ease;
 }
