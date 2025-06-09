@@ -15,7 +15,7 @@ interface TempDia {
 }
 
 const WeatherIconByTemp: React.FC<{ tempMax: number }> = ({ tempMax }) => {
-  if (tempMax >= 30)
+  if (tempMax >= 25)
     return <img src="/img/sol-icon.png" alt="Quente" className="semana-icon" />;
   if (tempMax >= 20)
     return <img src="/img/nublado-icon.png" alt="Ameno" className="semana-icon" />;
@@ -65,9 +65,9 @@ const ClimaSemana: React.FC = () => {
     fetchData();
   }, []);
 
-  if (loading) return <p>Carregando histórico de temperaturas...</p>;
-  if (error) return <p className="error-message">{error}</p>;
-  if (tempDias.length === 0) return <p>Nenhum dado disponível.</p>;
+ if (loading) return null;
+ if (error) return <p className="error-message">{error}</p>;
+ if (tempDias.length === 0) return <p>Nenhum dado disponível.</p>;
 
   return (
     <div className="forecast-container">

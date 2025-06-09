@@ -1,12 +1,19 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./ClimaFurnas.css";
-import {
-  FaTemperatureHigh,
-  FaTint,
-} from "react-icons/fa";
+import { FaTemperatureHigh, FaTint } from "react-icons/fa";
 import { WiStrongWind } from "react-icons/wi";
-import IconsApi from "../Icons_api/IconsApi"; 
+
+// Ícones baseados na temperatura
+const WeatherIconByTemp: React.FC<{ tempMax: number }> = ({ tempMax }) => {
+  if (tempMax >= 30)
+    return <img src="/img/sol-icon.png" alt="Quente" className="api-icon" />;
+  if (tempMax >= 20)
+    return <img src="/img/nublado-icon.png" alt="Ameno" className="api-icon" />;
+  if (tempMax >= 10)
+    return <img src="/img/chuva-icon.png" alt="Frio" className="api-icon" />;
+  return <img src="/img/chuvaforte-icon.png" alt="Muito frio" className="api-icon" />;
+};
 
 interface WeatherData {
   temp: string;
@@ -20,9 +27,6 @@ interface WeatherData {
 const WeatherCardFurnas: React.FC = () => {
   const [data, setData] = useState<WeatherData | null>(null);
 
-  const lat = -20.661; // latitude da represa
-  const lon = -46.373; // longitude da represa
-
   useEffect(() => {
     axios
       .get<WeatherData[]>("http://localhost:3006/maiortemp")
@@ -35,38 +39,37 @@ const WeatherCardFurnas: React.FC = () => {
   if (!data) return <div className="card">Carregando dados...</div>;
 
   const hora = new Date(data.reading_time).toLocaleTimeString("pt-BR");
+  const tempMax = parseFloat(data.temp);
 
   return (
-  <div className="weather-card">
-<div className="title-row">
-  <h1>
-    Clima Atual
-    <div className="icon-weather">
-  <IconsApi lat={lat} lon={lon} />
+    <div className="weather-card">
+      <div className="title-row">
+        <h1>
+          Clima Atual
+          <div className="icon-weather">
+            <WeatherIconByTemp tempMax={tempMax} />
+          </div>
+        </h1>
+        <h2>Represa de Furnas</h2>
+      </div>
+
+      <div className="temp-container">
+        <p className="temp">
+          <span className="temp-icon"><FaTemperatureHigh /></span>
+          <span className="temp-value">{data.temp}°C</span>
+        </p>
+      </div>
+
+      <div className="weather-info-row">
+        <p className="info">
+          <FaTint /> Umidade: {data.hum}%
+        </p>
+        <p className="info">
+          <WiStrongWind /> Vento: {data.wind_avg} km/h ({data.wind_dir_avg})
+        </p>
+        <p className="timestamp">Atualizado às {hora}</p>
+      </div>
     </div>
-  </h1>
-  <h2>Represa de Furnas</h2>
-</div>
-
- <div className="temp-container">
-  <p className="temp">
-    <span className="temp-icon"><FaTemperatureHigh /></span>
-    <span className="temp-value">{data.temp}°C</span>
-  </p>
-</div>
-
-
-<div className="weather-info-row">
-  <p className="info">
-    <FaTint /> Umidade: {data.hum}%
-  </p>
-  <p className="info">
-    <WiStrongWind /> Vento: {data.wind_avg} km/h ({data.wind_dir_avg})
-  </p>
-  <p className="timestamp">Atualizado às {hora}</p>
-</div>
-</div>
-
   );
 };
 

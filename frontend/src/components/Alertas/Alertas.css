@@ -1,0 +1,53 @@
+.alert-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.alert-card {
+  width: 100%;
+  padding: 15px 14px; /* ↓ Reduzi o padding */
+  border-radius: 10px;
+  color: white;
+  font-size: 15px; /* ↓ Fontes um pouco menores */
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s;
+}
+
+.alert-card h2 {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.alert-card p {
+  margin: 5px 0;
+}
+
+/* Cores de alerta */
+.alert-card.green {
+  background-color: #2ecc71;
+}
+
+.alert-card.orange {
+  background-color: #f39c12;
+}
+
+.alert-card.red {
+  background-color: #e74c3c;
+}
+
+/* Animação para alerta perigoso */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+
+.alert-card.animate {
+  animation: pulse 1.2s infinite;
+  border: 2px solid #fff;
+}
