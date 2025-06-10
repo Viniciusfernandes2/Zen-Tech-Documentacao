@@ -3,12 +3,13 @@
   color: white;
   padding: 2rem;
   border-radius: 16px;
-  width: 67%;
-  margin: 1rem 0 1rem 0; /* margem esquerda para alinhar com os cards da ClimaSemana */
+  width: 60%;
+  margin: 1rem 0 1rem 2.5rem; /* margem esquerda aumentada */
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   font-family: 'Segoe UI', sans-serif;
   box-sizing: border-box;
 }
+
 
 .card {
  color:white;
@@ -55,12 +56,12 @@
 .weather-card h2 {
   text-align: left;
   margin-bottom: 0rem;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   color: white;
 }
 
 .weather-card p {
-  margin-bottom: 1rem;
+  margin-bottom: 0rem;
   font-size: 1.15rem;
   color: white;
 }
@@ -69,13 +70,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top:12px ;
+  margin-top:5px ;
   flex-wrap: wrap; /* responsivo */
-  gap: 1rem;
+  gap: 0rem;
 }
 
 .weather-info-row p {
-  flex: 1 1 30%; /* ocupa até 30% do espaço */
+  flex: 0 0 30%; /* ocupa até 30% do espaço */
   margin: 0;
   text-align: center;
 }

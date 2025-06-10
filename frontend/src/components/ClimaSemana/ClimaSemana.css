@@ -7,17 +7,20 @@
 }
 
 .daily-max-temp-block {
-  background: rgba(74, 144, 226, 0.85); /* azul mais visível */
+  background: rgba(74, 144, 226, 0.85);
   border-radius: 12px;
   padding: 1rem;
-  text-align: center;
-  width: 135px; /* largura aumentada */
-  height: 135px; /* altura igual para formar um quadrado */
+  width: 120px;
+  height: 105px;
   color: white;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  
+  /* Alinhar à esquerda */
+  margin-left: 3;
+
 }
 
 .daily-max-temp-block .date {
@@ -34,8 +37,8 @@
 }
 
 .semana-icon {
- height: 62px; ;
- width: 65px;
+ height: 40px; ;
+ width: 40px;
   margin: 0 auto;
 }
 
