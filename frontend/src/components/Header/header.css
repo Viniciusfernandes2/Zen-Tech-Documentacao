@@ -57,3 +57,12 @@
   min-width: 80px;
   text-align: left;
 }
+
+.navListRight{
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 10px;
+  min-width: 80px;
+  text-align: left;
+}

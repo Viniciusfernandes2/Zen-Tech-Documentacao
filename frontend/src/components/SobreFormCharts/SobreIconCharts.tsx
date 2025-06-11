@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import SobreForm from '../SobreForm/SobreForm';
+import SobreFormCharts from '../SobreFormCharts/SobreFormCharts';
 import './SobreStyles.css';
 import { FaInfoCircle } from "react-icons/fa";
 
 
-const IconeSobre: React.FC = () => {
+const IconeSobreGraficos: React.FC = () => {
   const [visivel, setVisivel] = useState(false);
 
   return (
@@ -38,7 +38,7 @@ const IconeSobre: React.FC = () => {
         >
           <FaInfoCircle
             size={55}
-            color="#a9ffef"
+            color="#ffbadd"
             style={{
               borderRadius: '50%',
               boxShadow: '0 4px 12px rgba(0, 0, 0, 0.5)'
@@ -57,7 +57,7 @@ const IconeSobre: React.FC = () => {
             onClick={() => setVisivel(false)}
           >
             <motion.div
-              className="balloon-centralizado"
+              className="balloon-centralizadoCharts"
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0 }}
@@ -65,7 +65,7 @@ const IconeSobre: React.FC = () => {
               onClick={e => e.stopPropagation()}
             >
               <div className="balloon-arrow" />
-              <SobreForm />
+              <SobreFormCharts />
             </motion.div>
           </motion.div>
         )}
@@ -74,4 +74,4 @@ const IconeSobre: React.FC = () => {
   );
 };
 
-export default IconeSobre;
+export default IconeSobreGraficos;

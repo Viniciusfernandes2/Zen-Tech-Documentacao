@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { tableColinas } from "../../services/tableService";
 import DateFilter from "../DateFilter/DateFilter";  // Importando o componente DateFilter
 import "./table.css";
+import { useAuth } from "../../context/AuthContext"; // Ajuste o caminho conforme necessário
+
 
 interface DadoMeteorologico {
   id: number;
@@ -22,6 +24,7 @@ interface DadoMeteorologico {
 const ITENS_POR_PAGINA = 15;
 
 export default function Table() {
+  const { isAuthenticated } = useAuth();
   const [dados, setDados] = useState<DadoMeteorologico[]>([]);
   const [paginaAtual, setPaginaAtual] = useState(1);
   const [carregando, setCarregando] = useState(true);
@@ -51,10 +54,10 @@ export default function Table() {
   // Filtra os dados conforme a data escolhida
   const dadosFiltrados = dataEscolhida
     ? dados.filter((dado) => {
-        const data = new Date(dado.reading_time);
-        const dataStr = data.toLocaleDateString("pt-BR").split("/").reverse().join("-"); // Formato: YYYY-MM-DD
-        return dataStr === dataEscolhida;
-      })
+      const data = new Date(dado.reading_time);
+      const dataStr = data.toLocaleDateString("pt-BR").split("/").reverse().join("-"); // Formato: YYYY-MM-DD
+      return dataStr === dataEscolhida;
+    })
     : dados;
 
   const dadosPaginados = dadosFiltrados.slice(
@@ -64,7 +67,7 @@ export default function Table() {
 
   const exportarCSV = () => {
     const cabecalhos = [
-      'Data', 'Hora', 'Temp (°C)', 'Umidade (%)', 'Pressão (hPa)', 'Temp Cabine (°C)', 
+      'Data', 'Hora', 'Temp (°C)', 'Umidade (%)', 'Pressão (hPa)', 'Temp Cabine (°C)',
       'Bateria (V)', 'UV', 'Rajada Vento', 'Vento Inst.', 'Vento Méd.', 'Dir. Inst.', 'Dir. Méd.'
     ];
 
@@ -73,8 +76,8 @@ export default function Table() {
       const dataStr = data.toLocaleDateString();
       const horaStr = data.toLocaleTimeString();
       return [
-        dataStr, horaStr, dado.temp, dado.hum, dado.bar, dado.cab_temp, 
-        dado.bat_volts, dado.uv_level, dado.wind_peak, dado.wind_rt, 
+        dataStr, horaStr, dado.temp, dado.hum, dado.bar, dado.cab_temp,
+        dado.bat_volts, dado.uv_level, dado.wind_peak, dado.wind_rt,
         dado.wind_avg, dado.wind_dir_rt, dado.wind_dir_avg
       ];
     });
@@ -176,11 +179,13 @@ export default function Table() {
               </button>
             </div>
 
-            <div className="exportarCsv">
-              <button className="botaoExportar" onClick={exportarCSV}>
-                Baixar CSV
-              </button>
-            </div>
+            {isAuthenticated && (
+              <div className="exportarCsv">
+                <button className="botaoExportar" onClick={exportarCSV}>
+                  Baixar CSV
+                </button>
+              </div>
+            )}
           </div>
         </>
       )}

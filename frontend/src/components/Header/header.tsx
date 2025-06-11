@@ -5,10 +5,12 @@ import HomeButton from "../Buttons/HomeButton";
 import GraficoButton from "../Buttons/GraficoButton";
 import TabelaButton from "../Buttons/TabelaButton";
 import SairButton from "../Buttons/SairButton";
+import { useAuth } from "../../context/AuthContext";
 
 const Header: React.FC = () => {
   const location = useLocation();
   const [hoverLabel, setHoverLabel] = useState<string | null>(null);
+  const { isAuthenticated, isVisitante, userName } = useAuth();
 
   const isActive = (path: string) => location.pathname === path;
 
@@ -27,6 +29,12 @@ const Header: React.FC = () => {
 
   const labelToShow = hoverLabel || getActiveLabel();
 
+  const saudacao = isAuthenticated && userName
+    ? `Olá, ${userName}!`
+    : isVisitante
+    ? "Olá, Visitante!"
+    : "";
+
   return (
     <header className="header">
       <nav className="navContainer">
@@ -34,7 +42,6 @@ const Header: React.FC = () => {
           <img src="/img/headerlogo.png" alt="Logo" className="logo" />
         </div>
 
-        {/* TEXTO AO LADO DOS BOTÕES */}
         <div className="activeLabel">{labelToShow}</div>
 
         <ul className="navListLeft">
@@ -68,6 +75,11 @@ const Header: React.FC = () => {
         </ul>
 
         <ul className="navListRight">
+          {saudacao && (
+            <li>
+              <span className="saudacao-text">{saudacao}</span>
+            </li>
+          )}
           <li className={isActive("/") ? "active" : ""}>
             <Link to="/">
               <SairButton />

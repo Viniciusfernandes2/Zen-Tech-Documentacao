@@ -1,0 +1,71 @@
+.sobre-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .sobre-card h1 {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+    color: #2d3a4b;
+  }
+  
+  .sobre-card p {
+    font-size: 1.15rem;
+    color: #4a5568;
+    line-height: 1.7;
+  }
+  
+  .sobre-img {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .sobre-img img {
+    max-width: 320px;
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  }
+  
+  .sobre-main {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    padding: 40px 32px;
+    max-width: 900px;
+    width: 100%;
+    gap: 48px;
+  }
+
+  .balloon-arrow {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #fff;
+  }
+  
+  .balloon-centralizadoCharts {
+  background: linear-gradient(135deg, #95dff8, #f196c3);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  padding: 32px 24px;
+  position: relative;
+  min-width: 320px;
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+  
