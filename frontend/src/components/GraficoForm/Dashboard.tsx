@@ -141,17 +141,17 @@ const Dashboard: React.FC = () => {
               {grafico.label}
             </label>
           ))}
-          <button
+          {/* <button
             className="sidebar-extension-btn"
             onClick={() => setExtensaoAberta((prev) => !prev)}
           >
             {extensaoAberta ? '❮' : '❯'}
-          </button>
+          </button> */}
         </aside>
-        <SidebarExtensao 
+        {/* <SidebarExtensao 
           onClose={() => setExtensaoAberta(false)} 
           isOpen={extensaoAberta} 
-        />
+        /> */}
       </div>
       <main className="content">
         {graficosDisponiveis

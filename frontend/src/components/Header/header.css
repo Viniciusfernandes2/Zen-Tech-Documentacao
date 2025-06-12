@@ -33,8 +33,24 @@
 }
 
 .navListRight {
+  display: flex;
+  gap: 24px;
   justify-content: flex-end;
   flex-grow: 1;
+}
+
+/* Responsividade apenas para navListRight */
+@media (max-width: 768px) {
+  .navListRight {
+    flex-direction: column;
+    gap: 12px;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: inherit;
+    padding: 16px;
+    display: none; /* Você pode controlar a exibição via JS se quiser um menu hamburguer */
+  }
 }
 
 .logoContainer {
