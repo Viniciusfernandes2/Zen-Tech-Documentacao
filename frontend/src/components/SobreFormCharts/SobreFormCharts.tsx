@@ -7,16 +7,21 @@ const SobreFormCharts: React.FC = () => {
       <main className="sobre-main">
         <div className="sobre-card">
           <div className="logo-titulo">
-            <img src="/img/Logo.jpg" alt="Logo" className="login-logo" />
-            <h1>Zen-Tech</h1>
+            <h1>Como usar os gráficos:</h1>
           </div>
           <p>
-            A empresa Zen-Tech é responsável por esta plataforma inovadora e especializada em soluções tecnológicas aplicadas à meteorologia e segurança ambiental. Ela foi desenvolvida para monitorar e alertar sobre condições meteorológicas críticas no lago de Furnas, especialmente eventos de vento extremo e ondas que representam riscos aos navegantes. O sistema emite alertas para os moradores dos 30 municípios próximos ao lago, ajudando a prevenir acidentes como naufrágios. Ela coleta dados de estações meteorológicas, exibindo-os de forma interativa em gráficos e tabelas.
+            <strong>1.</strong> Passe o mouse sobre a seta lateral para abrir o menu com os dados disponíveis.
+          </p>
+          <p>
+            <strong>2.</strong> Marque os dados que você deseja visualizar, como Temperatura ou Umidade.
+          </p>
+          <p>
+            <strong>3.</strong> Escolha a data no campo "Data" acima do gráfico para ver os dados do dia selecionado.
           </p>
         </div>
 
         <div className="sobre-img">
-          <img src="img/furnas.jpg" />
+          <img src="/img/SobreCharts.png" />
         </div>
       </main>
     </div>

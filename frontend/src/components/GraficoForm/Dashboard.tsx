@@ -3,7 +3,6 @@ import GraficoApex from "../GraficoForm/GraficoApex";
 import { graficoReserv } from "../../services/graficoService"; 
 import "./Dashboard.css";
 import "./Grafico.css"
-import SidebarExtensao from "../GraficoForm/SidebarExtensao";
 
 type GraficoConfig = {
   id: string;
@@ -91,8 +90,8 @@ const graficosDisponiveis: GraficoConfig[] = [
 
 const Dashboard: React.FC = () => {
   const [graficosAtivos, setGraficosAtivos] = useState<string[]>([]);
-  const [sidebarAberta, setSidebarAberta] = useState(false);
-  const [extensaoAberta, setExtensaoAberta] = useState(false);
+
+  const [isHovered, setIsHovered] = useState(false);
 
   const handleToggleGrafico = (id: string) => {
     setGraficosAtivos((prev) =>
@@ -100,75 +99,50 @@ const Dashboard: React.FC = () => {
     );
   };
 
-  return (
-    <div className="dashboard-container">
-      <div className="sidebar-container">
-        {/* Botão fixo para abrir/fechar a sidebar principal, alinhado com a sidebar */}
-        <div
-          style={{
-            position: 'fixed',
-            top: 70,
-            left: 0,
-            height: 'calc(100vh - 70px)',
-            zIndex: 1001,
-            display: 'flex',
-            alignItems: 'center'
-          }}
+    return (
+  <div className="dashboard-container">
+    <div className="sidebar-container">
+      <button
+        className="sidebar-toggle"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        {isHovered ? '❮' : '❯'}
+      </button>
+
+      <aside className={`sidebar ${isHovered ? 'open' : ''}`}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
         >
-          <button
-            className="sidebar-toggle"
-            onClick={() => {
-              if (sidebarAberta) {
-                setSidebarAberta(false);
-                setExtensaoAberta(false);
-              } else {
-                setSidebarAberta(true);
-              }
-            }}
-          >
-            {sidebarAberta ? '❮' : '❯'}
-          </button>
-        </div>
-        {/* Sidebar principal */}
-        <aside className={`sidebar${sidebarAberta ? ' open' : ''}`}>
-          {graficosDisponiveis.map((grafico) => (
-            <label key={grafico.id}>
-              <input
-                type="checkbox"
-                checked={graficosAtivos.includes(grafico.id)}
-                onChange={() => handleToggleGrafico(grafico.id)}
-              />
-              {grafico.label}
-            </label>
-          ))}
-          {/* <button
-            className="sidebar-extension-btn"
-            onClick={() => setExtensaoAberta((prev) => !prev)}
-          >
-            {extensaoAberta ? '❮' : '❯'}
-          </button> */}
-        </aside>
-        {/* <SidebarExtensao 
-          onClose={() => setExtensaoAberta(false)} 
-          isOpen={extensaoAberta} 
-        /> */}
-      </div>
-      <main className="content">
-        {graficosDisponiveis
-          .filter((grafico) => graficosAtivos.includes(grafico.id))
-          .map((grafico) => (
-            <div key={grafico.id} className="grafico-wrapper">
-              <GraficoApex
-                campo={grafico.campo}
-                tituloY={grafico.tituloY}
-                nomeGrafico={grafico.nomeGrafico}
-                nomeEstacao={grafico.nomeEstacao}
-                fetchData={graficoReserv}
-              />
-            </div>
-          ))}
-      </main>
+        {graficosDisponiveis.map((grafico) => (
+          <label key={grafico.id}>
+            <input
+              type="checkbox"
+              checked={graficosAtivos.includes(grafico.id)}
+              onChange={() => handleToggleGrafico(grafico.id)}
+            />
+            {grafico.label}
+          </label>
+        ))}
+      </aside>
     </div>
-  );
+
+    <main className="content">
+      {graficosDisponiveis
+        .filter((grafico) => graficosAtivos.includes(grafico.id))
+        .map((grafico) => (
+          <div key={grafico.id} className="grafico-wrapper">
+            <GraficoApex
+              campo={grafico.campo}
+              tituloY={grafico.tituloY}
+              nomeGrafico={grafico.nomeGrafico}
+              nomeEstacao={grafico.nomeEstacao}
+              fetchData={graficoReserv}
+            />
+          </div>
+        ))}
+    </main>
+  </div>
+);
 };
 export default Dashboard;
